@@ -10,4 +10,5 @@ interface Endpoints {
 
     @POST("login")
     fun login(@Body loginRequest: LoginRequest): Call<LoginResponse>
+
 }
