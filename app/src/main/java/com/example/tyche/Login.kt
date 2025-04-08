@@ -1,6 +1,7 @@
 package com.example.tyche
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
@@ -54,14 +55,18 @@ class Login : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
                     loginResponse?.let {
-                        // Salva o token no SharedPreferences
+
                         saveToken(it.token)
 
                         Toast.makeText(this@Login, "Login bem-sucedido! Token: ${it.token}", Toast.LENGTH_SHORT).show()
 
+                        val intent = Intent(this@Login, MainActivity::class.java)
+                        startActivity(intent)
+
+
                     }
                 } else {
-                    Toast.makeText(this@Login, "Erro: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Login, "Falha no login", Toast.LENGTH_SHORT).show()
                 }
             }
 

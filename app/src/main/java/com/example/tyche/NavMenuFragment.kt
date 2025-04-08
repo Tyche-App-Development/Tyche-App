@@ -3,12 +3,11 @@ package com.example.tyche
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,9 +39,9 @@ class NavMenuFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_nav_menu, container, false)
 
         val homeButton = view.findViewById<ImageView>(R.id.nav_home)
-        val coinListButton = view.findViewById<Button>(R.id.nav_coin_list)
-        val walletButton = view.findViewById<Button>(R.id.nav_wallet)
-        val accountButton = view.findViewById<Button>(R.id.nav_account)
+        val coinListButton = view.findViewById<ImageView>(R.id.nav_coin_list)
+        val walletButton = view.findViewById<ImageView>(R.id.nav_wallet)
+        val accountButton = view.findViewById<ImageView>(R.id.nav_account)
 
         homeButton.setOnClickListener {
             val intent = Intent(requireContext(), MainActivity::class.java)

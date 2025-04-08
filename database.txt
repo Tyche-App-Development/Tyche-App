@@ -10,3 +10,5 @@ CREATE TABLE "User" (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()  
 );
 
+
+

@@ -1,5 +1,6 @@
 package com.example.tyche
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("TOKEN_KEY", null)
+
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.navigation, NavMenuFragment())
