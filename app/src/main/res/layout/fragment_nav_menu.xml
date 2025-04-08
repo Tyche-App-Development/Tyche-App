@@ -26,24 +26,28 @@
             android:padding="16dp">
 
             <ImageView
+                android:id="@+id/nav_home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/house" />
 
             <ImageView
+                android:id="@+id/nav_coin_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/chart_line" />
 
             <ImageView
+                android:id="@+id/nav_wallet"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/credit_card" />
 
             <ImageView
+                android:id="@+id/nav_account"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
