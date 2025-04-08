@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
-    android:padding="16dp">
+    android:background="#1A1A1A">
 
     <!-- Top Logo -->
     <ImageView
@@ -12,171 +12,219 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo" />
-
-    <!-- Language Toggle -->
-    <RadioGroup
-        android:id="@+id/languageToggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp">
-
-        <RadioButton
-            android:id="@+id/ptLang"
-            android:text="PT"
-            android:textColor="#FFD700"
-            android:buttonTint="#FFD700"
-            android:checked="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioButton
-            android:id="@+id/enLang"
-            android:text="EN"
-            android:textColor="#AAAAAA"
-            android:buttonTint="#AAAAAA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RadioGroup>
-
-    <!-- Profile Image -->
-    <ImageView
-        android:id="@+id/profileImage"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_below="@id/languageToggle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
         android:src="@drawable/logo"
-        android:scaleType="centerCrop" />
+        android:layout_marginTop="24dp"/>
 
-    <!-- Full Name -->
-    <TextView
-        android:id="@+id/fullName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/profileImage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
-        android:text="Óscio Manuel Gomes Negócio"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <!-- Username -->
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/fullName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="4dp"
-        android:text="Nome de utilizador:\noscío_negocio"
-        android:textColor="@android:color/white"
-        android:textSize="14sp" />
-
-    <!-- Email -->
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/username"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="4dp"
-        android:text="Email:\noscio.negocio@gmail.com"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:textSize="14sp" />
-
-    <!-- NIF -->
-    <TextView
-        android:id="@+id/nif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/email"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="4dp"
-        android:text="NIF:\n251123864"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:textSize="14sp" />
-
-    <!-- Divider -->
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/nif"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/darker_gray" />
-
-    <!-- Option: Histórico -->
-    <TextView
-        android:id="@+id/historico"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/divider"
-        android:layout_marginTop="8dp"
-        android:text="Histórico"
-        android:textColor="@android:color/white"
-        android:padding="12dp"
-        android:background="?attr/selectableItemBackground" />
-
-    <!-- Option: Adicionar Fundos -->
-    <TextView
-        android:id="@+id/adicionarFundos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/historico"
-        android:text="Adicionar fundos"
-        android:textColor="@android:color/white"
-        android:padding="12dp"
-        android:background="?attr/selectableItemBackground" />
-
-    <!-- Option: Notificações with Toggle -->
-    <RelativeLayout
-        android:id="@+id/notificationRow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/adicionarFundos"
-        android:padding="12dp">
-
-        <TextView
-            android:id="@+id/notificationsLabel"
-            android:layout_width="wrap_content"
+        android:layout_marginTop="70dp">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notificações"
-            android:textColor="@android:color/white" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/exo_2"
+                    android:text="Perfil"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-        <Switch
-            android:id="@+id/notificationSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true" />
-    </RelativeLayout>
+            <!-- Profile Image -->
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/logo"
+                    android:scaleType="centerCrop" />
 
-    <!-- Option: Editar Informações -->
-    <TextView
-        android:id="@+id/editarInfo"
+                <!-- Full Name -->
+                <TextView
+                    android:id="@+id/fullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Óscio Manuel Gomes Negócio"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Username -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/exo_2"
+                    android:text="Nome de utilizador:"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="oscio_negocio"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/exo_2"
+                    android:text="Email:"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="oscio.negocio@gmail.com"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/exo_2"
+                    android:text="NIF:"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12345667"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- Option: Histórico -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/historico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:fontFamily="@font/exo_2"
+                    android:paddingVertical="12dp"
+                    android:text="Histórico"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Option: Adicionar Fundos -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/adicionarFundos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:fontFamily="@font/exo_2"
+                    android:paddingVertical="12dp"
+                    android:text="Adicionar fundos"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Option: Notificações with Toggle -->
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
+                <LinearLayout
+                    android:id="@+id/notificationRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/notificationsLabel"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/exo_2"
+                        android:text="Notificações"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/notificationSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:thumbTint="@color/white"
+                        android:trackTint="@color/white"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
+
+                <!-- Option: Editar Informações -->
+                <TextView
+                    android:id="@+id/editarInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:paddingVertical="12dp"
+                    android:text="Editar informações"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Logout Button -->
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#B22222"
+                android:fontFamily="@font/exo_2"
+                android:text="Terminar sessão"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/notificationRow"
-        android:text="Editar informações"
-        android:textColor="@android:color/white"
-        android:padding="12dp"
-        android:background="?attr/selectableItemBackground" />
-
-    <!-- Logout Button -->
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editarInfo"
-        android:layout_marginTop="24dp"
-        android:text="Terminar sessão"
-        android:textColor="@android:color/white"
-        android:backgroundTint="#B22222" />
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="0dp" />
 
 </RelativeLayout>
