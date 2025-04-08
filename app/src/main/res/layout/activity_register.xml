@@ -4,7 +4,6 @@
     android:background="#1C1C1C"
     android:padding="24dp">
 
-
     <TextView
         android:id="@+id/footer_text2"
         android:layout_width="wrap_content"
@@ -13,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/exo_2"
-        android:text="Criar riqueza sem esforço"
+        android:text="@string/footer_text"
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
 
@@ -26,7 +25,6 @@
         android:layout_marginTop="12dp"
         android:src="@drawable/logo" />
 
-
     <TextView
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
@@ -34,7 +32,7 @@
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:text="Tyche"
+        android:text="@string/app_name"
         android:textColor="#FFFFFF"
         android:textSize="32sp"
         android:textStyle="bold" />
@@ -44,7 +42,7 @@
         android:id="@+id/full_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome completo"
+        android:hint="@string/hint_full_name"
         android:textColor="#FFFFFF"
         android:textColorHint="#CCCCCC"
         android:backgroundTint="#FFFFFF"
@@ -55,7 +53,7 @@
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome de utilizador"
+        android:hint="@string/hint_username"
         android:textColor="#FFFFFF"
         android:textColorHint="#CCCCCC"
         android:backgroundTint="#FFFFFF"
@@ -66,7 +64,7 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="@string/hint_email"
         android:textColor="#FFFFFF"
         android:textColorHint="#CCCCCC"
         android:backgroundTint="#FFFFFF"
@@ -78,7 +76,7 @@
         android:id="@+id/nif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="NIF"
+        android:hint="@string/hint_nif"
         android:textColor="#FFFFFF"
         android:textColorHint="#CCCCCC"
         android:backgroundTint="#FFFFFF"
@@ -90,7 +88,7 @@
         android:id="@+id/idade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Idade"
+        android:hint="@string/hint_age"
         android:textColor="#FFFFFF"
         android:textColorHint="#CCCCCC"
         android:backgroundTint="#FFFFFF"
@@ -102,7 +100,7 @@
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Palavra-passe"
+        android:hint="@string/hint_password"
         android:textColor="#FFFFFF"
         android:textColorHint="#CCCCCC"
         android:backgroundTint="#FFFFFF"
@@ -114,14 +112,13 @@
         android:id="@+id/confirm_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Confirmar palavra-passe"
+        android:hint="@string/hint_confirm_password"
         android:textColor="#FFFFFF"
         android:textColorHint="#CCCCCC"
         android:backgroundTint="#FFFFFF"
         android:layout_below="@id/password"
         android:layout_marginTop="16dp"
         android:inputType="textPassword" />
-
 
     <Button
         android:id="@+id/login_button"
@@ -131,9 +128,8 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="#E8AF3B"
         android:fontFamily="@font/exo_2"
-        android:text="Registar"
+        android:text="@string/register_button"
         android:textColor="#000000" />
-
 
     <TextView
         android:id="@+id/already_have_account"
@@ -145,7 +141,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
-        android:text="Já tem conta? Clique aqui."
+        android:text="@string/already_have_account"
         android:textAlignment="center"
         android:textColor="#DDDDDD"
         android:textSize="14sp" />

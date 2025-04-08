@@ -1,0 +1,18 @@
+<resources>
+    <!-- Login -->
+    <string name="app_name">Tyche</string>
+    <string name="hint_username">Nombre de usuario</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="login_button">Iniciar sesión</string>
+    <string name="signup_link">¿No tienes una cuenta? Haz clic aquí.</string>
+    <string name="footer_text">Crear riqueza sin esfuerzo</string>
+
+    <!-- Registro -->
+    <string name="hint_full_name">Nombre completo</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_nif">NIF</string>
+    <string name="hint_age">Edad</string>
+    <string name="hint_confirm_password">Confirmar contraseña</string>
+    <string name="register_button">Registrarse</string>
+    <string name="already_have_account">¿Ya tienes cuenta? Haz clic aquí.</string>
+</resources>

@@ -24,11 +24,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/exo_2"
-        android:text="Tyche"
+        android:text="@string/app_name"
         android:textColor="#FFFFFF"
         android:textSize="32sp"
         android:textStyle="bold" />
-
 
     <EditText
         android:id="@+id/username_input"
@@ -38,11 +37,10 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/exo_2"
-        android:hint="Nome de utilizador"
+        android:hint="@string/hint_username"
         android:inputType="text"
         android:textColor="#FFFFFF"
         android:textColorHint="#AAAAAA" />
-
 
     <EditText
         android:id="@+id/password_input"
@@ -52,11 +50,10 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/exo_2"
-        android:hint="Palavra-passe"
+        android:hint="@string/hint_password"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
         android:textColorHint="#AAAAAA" />
-
 
     <Button
         android:id="@+id/login_button"
@@ -66,9 +63,8 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="#E8AF3B"
         android:fontFamily="@font/exo_2"
-        android:text="Registar"
+        android:text="@string/login_button"
         android:textColor="#000000" />
-
 
     <TextView
         android:id="@+id/signup_link"
@@ -78,7 +74,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/exo_2"
-        android:text="Não tem conta? Clique aqui."
+        android:text="@string/signup_link"
         android:textColor="#DDDDDD"
         android:textSize="14sp" />
 
@@ -90,7 +86,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/exo_2"
-        android:text="Criar riqueza sem esforço"
+        android:text="@string/footer_text"
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
 
