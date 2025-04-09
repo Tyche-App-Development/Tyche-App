@@ -40,7 +40,6 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-            <!-- Profile Image -->
                 <ImageView
                     android:id="@+id/profileImage"
                     android:layout_width="100dp"
@@ -50,7 +49,6 @@
                     android:src="@drawable/logo"
                     android:scaleType="centerCrop" />
 
-                <!-- Full Name -->
                 <TextView
                     android:id="@+id/fullName"
                     android:layout_width="match_parent"
@@ -61,7 +59,6 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <!-- Username -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -118,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <!-- Option: Histórico -->
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -140,7 +137,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <!-- Option: Adicionar Fundos -->
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -161,7 +158,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <!-- Option: Notificações with Toggle -->
+
                 <View
                     android:id="@+id/divider"
                     android:layout_width="match_parent"
@@ -216,7 +213,6 @@
                     android:layout_height="1dp"
                     android:background="@android:color/white" />
 
-                <!-- Option: Editar Informações -->
                 <Button
                     android:id="@+id/editarInfo"
                     android:gravity="start"
