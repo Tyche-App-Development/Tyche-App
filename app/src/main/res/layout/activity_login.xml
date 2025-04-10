@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1C1C1C"
+    android:background="#1A1A1A"
     android:padding="24dp">
 
     <ImageView
@@ -40,7 +40,8 @@
         android:hint="@string/hint_username"
         android:inputType="text"
         android:textColor="#FFFFFF"
-        android:textColorHint="#AAAAAA" />
+        android:textColorHint="#AAAAAA"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/password_input"
@@ -53,7 +54,8 @@
         android:hint="@string/hint_password"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
-        android:textColorHint="#AAAAAA" />
+        android:textColorHint="#AAAAAA"
+        android:textSize="14sp" />
 
     <Button
         android:id="@+id/login_button"
@@ -64,9 +66,10 @@
         android:backgroundTint="#E8AF3B"
         android:fontFamily="@font/exo_2"
         android:text="@string/login_button"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="24sp" />
 
-    <TextView
+    <Button
         android:id="@+id/signup_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,7 +78,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/exo_2"
         android:text="@string/signup_link"
-        android:textColor="#DDDDDD"
+        android:textColor="@color/white"
         android:textSize="14sp" />
 
     <TextView

@@ -1,9 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Tyche" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.Tyche" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">#1A1A1A</item>
+        <item name="colorOnPrimary">#1A1A1A</item>
+        <item name="android:windowBackground">#1A1A1A</item>
     </style>
 
     <style name="Theme.Tyche" parent="Base.Theme.Tyche" />
+
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#1A1A1A</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenIconBackgroundColor">#E8AF3B</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.Tyche</item>
+    </style>
 </resources>

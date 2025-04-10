@@ -36,7 +36,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -45,6 +44,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.okhttp)
     implementation ("org.postgresql:postgresql:42.3.6")
     implementation("org.mindrot:jbcrypt:0.4")
     implementation("org.jetbrains.exposed:exposed-core:0.41.1")
@@ -54,5 +54,5 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.google.code.gson:gson:2.8.8")
 
-    implementation(libs.okhttp)
+    implementation("androidx.core:core-splashscreen:1.0.0")
 }
