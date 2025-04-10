@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: "admin"
       POSTGRES_DB: "tyche"
     ports:
-      - "5432:5432"
+      - "5438:5432"
     volumes:
       - timescaledb_data:/var/lib/postgresql/data
     networks:

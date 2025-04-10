@@ -25,6 +25,15 @@ class Profile : AppCompatActivity() {
         btnLogout.setOnClickListener {
             logoutUser()
         }
+
+        val navFragment = NavMenuFragment()
+        val bundle = Bundle()
+        bundle.putString("selected_button", "account")
+        navFragment.arguments = bundle
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.navigation, navFragment)
+            .commit()
     }
 
     private fun logoutUser() {

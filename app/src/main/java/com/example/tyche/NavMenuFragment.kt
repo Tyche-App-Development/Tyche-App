@@ -38,14 +38,45 @@ class NavMenuFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_nav_menu, container, false)
 
+        val selected_button = arguments?.getString("selected_button")
+
         val homeButton = view.findViewById<ImageView>(R.id.nav_home)
         val coinListButton = view.findViewById<ImageView>(R.id.nav_coin_list)
         val walletButton = view.findViewById<ImageView>(R.id.nav_wallet)
         val accountButton = view.findViewById<ImageView>(R.id.nav_account)
 
+
+        // CHANGE NAV MENU ICON COLORS ACCORDING TO THE PAGE OPENED
+        if(selected_button == "home"){
+            homeButton.setColorFilter(Color.parseColor("#E8AF3B"))
+            coinListButton.setColorFilter(Color.WHITE)
+            walletButton.setColorFilter(Color.WHITE)
+            accountButton.setColorFilter(Color.WHITE)
+        }else {
+            if(selected_button == "coin_list"){
+                coinListButton.setColorFilter(Color.parseColor("#E8AF3B"))
+                homeButton.setColorFilter(Color.WHITE)
+                walletButton.setColorFilter(Color.WHITE)
+                accountButton.setColorFilter(Color.WHITE)
+            }else {
+                if(selected_button == "wallet"){
+                    walletButton.setColorFilter(Color.parseColor("#E8AF3B"))
+                    coinListButton.setColorFilter(Color.WHITE)
+                    homeButton.setColorFilter(Color.WHITE)
+                    accountButton.setColorFilter(Color.WHITE)
+                }else {
+                    if(selected_button == "account"){
+                        accountButton.setColorFilter(Color.parseColor("#E8AF3B"))
+                        coinListButton.setColorFilter(Color.WHITE)
+                        walletButton.setColorFilter(Color.WHITE)
+                        homeButton.setColorFilter(Color.WHITE)
+                    }
+                }
+            }
+        }
+
         homeButton.setOnClickListener {
             val intent = Intent(requireContext(), MainActivity::class.java)
-            homeButton.setColorFilter(Color.parseColor("#FFA500"))
             startActivity(intent)
         }
         coinListButton.setOnClickListener {

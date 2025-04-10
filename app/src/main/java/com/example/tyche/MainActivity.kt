@@ -22,8 +22,13 @@ class MainActivity : AppCompatActivity() {
         val token = sharedPreferences.getString("TOKEN_KEY", null)
 
 
+        val navFragment = NavMenuFragment()
+        val bundle = Bundle()
+        bundle.putString("selected_button", "home")
+        navFragment.arguments = bundle
+
         supportFragmentManager.beginTransaction()
-            .replace(R.id.navigation, NavMenuFragment())
+            .replace(R.id.navigation, navFragment)
             .commit()
     }
 }
