@@ -44,13 +44,14 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profileImage"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="16dp"
                     android:src="@drawable/logo"
+
                     android:scaleType="centerCrop" />
 
                 <TextView
@@ -73,6 +74,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="oscio_negocio"
@@ -90,6 +92,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="oscio.negocio@gmail.com"
@@ -107,6 +110,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/nif"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="12345667"
