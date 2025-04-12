@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if (response.isSuccessful) {
                     val userProfile = response.body()
-                    nameTextView.text = userProfile?.user?.username ?: "Nome não encontrado"
+                    nameTextView.text = userProfile?.user?.fullName ?: "Nome não encontrado"
                 } else {
                     nameTextView.text = "Erro: ${response.code()}"
                 }
