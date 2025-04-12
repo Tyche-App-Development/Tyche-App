@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val navFragment = NavMenuFragment()
+        val coinCardFragment = CoinCardFragment()
         val bundle = Bundle()
         bundle.putString("selected_button", "home")
         navFragment.arguments = bundle
@@ -52,10 +53,9 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
-
         supportFragmentManager.beginTransaction()
             .replace(R.id.navigation, navFragment)
+            .replace(R.id.coin_card, coinCardFragment)
             .commit()
     }
 }

@@ -80,7 +80,7 @@ class NavMenuFragment : Fragment() {
             startActivity(intent)
         }
         coinListButton.setOnClickListener {
-            val intent = Intent(requireContext(), MainActivity::class.java)
+            val intent = Intent(requireContext(), CoinMarketActivity::class.java)
             startActivity(intent)
         }
         walletButton.setOnClickListener {
