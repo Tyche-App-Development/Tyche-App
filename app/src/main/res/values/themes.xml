@@ -14,4 +14,11 @@
         <item name="windowSplashScreenIconBackgroundColor">#E8AF3B</item>
         <item name="postSplashScreenTheme">@style/Base.Theme.Tyche</item>
     </style>
+
+    <style name="NoRippleBottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+    </style>
+
 </resources>

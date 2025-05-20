@@ -5,4 +5,10 @@
         <item name="colorOnPrimary">#1A1A1A</item>
         <item name="android:windowBackground">#1A1A1A</item>
     </style>
+    <style name="NoRippleBottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+    </style>
+
 </resources>

@@ -16,7 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class Login : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var usernameEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -61,20 +61,20 @@ class Login : AppCompatActivity() {
 
                         saveToken(it.token)
 
-                        Toast.makeText(this@Login, "Login bem-sucedido! Token: ${it.token}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginActivity, "Login bem-sucedido! Token: ${it.token}", Toast.LENGTH_SHORT).show()
 
-                        val intent = Intent(this@Login, MainActivity::class.java)
+                        val intent = Intent(this@LoginActivity, NavMenuActivity::class.java)
                         startActivity(intent)
 
 
                     }
                 } else {
-                    Toast.makeText(this@Login, "Falha no login", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, "Falha no login", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(this@Login, "Falha na requisição: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity, "Falha na requisição: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }

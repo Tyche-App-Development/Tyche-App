@@ -17,4 +17,22 @@
     <string name="already_have_account">Already have an account? Click here.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_market">Market</string>
+    <string name="menu_wallet">Wallet</string>
+    <string name="menu_profile">Profile</string>
+    <string name="coin_volume">Volume</string>
+    <string name="welcome">Welcome</string>
+    <string name="profit">Profit</string>
+    <string name="market">Market:</string>
+    <string name="username">Username:</string>
+    <string name="email">Email:</string>
+    <string name="nif">NINO:</string>
+    <string name="history">History</string>
+    <string name="add_funds">Add funds</string>
+    <string name="notifications">Notifications</string>
+    <string name="language">Language</string>
+    <string name="edit_informations">Edit informations</string>
+    <string name="logout">Logout</string>
+    <string name="strategies">Strategies:</string>
 </resources>

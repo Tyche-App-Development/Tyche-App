@@ -22,6 +22,7 @@
             android:padding="16dp">
 
             <ImageView
+                android:id="@+id/coin_image"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginEnd="8dp"
@@ -34,6 +35,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/coin_symbol"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginBottom="10dp"
@@ -49,7 +51,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/exo_2"
-                    android:text="Volume: $28.93B"
+                    android:text="@string/coin_volume"
                     android:textColor="#CCCCCC"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -62,6 +64,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/coin_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/exo_2"
@@ -71,6 +74,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/coin_pnl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/exo_2"

@@ -15,4 +15,23 @@
     <string name="hint_confirm_password">Confirmar contraseña</string>
     <string name="register_button">Registrarse</string>
     <string name="already_have_account">¿Ya tienes cuenta? Haz clic aquí.</string>
+    <string name="hello_blank_fragment">---</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_market">Mercado</string>
+    <string name="menu_wallet">Cartera</string>
+    <string name="menu_profile">Perfil</string>
+    <string name="coin_volume">Volume</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="profit">Beneficio</string>
+    <string name="market">Mercado:</string>
+    <string name="username">Nombre de usuario:</string>
+    <string name="email">Email:</string>
+    <string name="nif">DNI:</string>
+    <string name="history">Historia</string>
+    <string name="add_funds">Añadir fondos</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="language">Idioma</string>
+    <string name="edit_informations">Editar información</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="strategies">Estrategias:</string>
 </resources>
