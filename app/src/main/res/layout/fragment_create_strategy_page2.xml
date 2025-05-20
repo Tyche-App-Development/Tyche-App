@@ -186,26 +186,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="24dp"
                 android:backgroundTint="#892E2E"
                 android:fontFamily="@font/exo_2"
                 android:text="@string/cancel"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"
-                android:layout_marginBottom="84dp"
                 android:layout_marginEnd="4dp"/>
             <Button
                 android:id="@+id/nextButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="24dp"
                 android:backgroundTint="@color/yellow"
                 android:fontFamily="@font/exo_2"
                 android:text="@string/next"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"
-                android:layout_marginBottom="84dp"
                 android:layout_marginStart="4dp"/>
         </LinearLayout>
     </RelativeLayout>

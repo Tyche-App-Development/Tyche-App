@@ -32,7 +32,7 @@
     <string name="notifications">Notifications</string>
     <string name="language">Language</string>
     <string name="edit_informations">Edit informations</string>
-    <string name="logout">Logout</string>
+    <string name="logout">Log out</string>
     <string name="strategies">Strategies:</string>
     <string name="create_strategy">Create Strategy</string>
     <string name="select_asset">Select the asset:</string>
@@ -49,4 +49,9 @@
     <string name="invest_amount">Amount to invest:</string>
     <string name="balance">Balance:</string>
     <string name="amount">Amount</string>
+    <string name="invest_warning">By investing in a strategy you accept the terms of purchase and sale of the strategy and assume the full risk of the investment.  Investing always carries a risk of total loss of the capital invested.</string>
+    <string name="hint_url_image">New profile image url</string>
+    <string name="hint_api_key">API Key</string>
+    <string name="hint_api_secret">API Secret</string>
+    <string name="hint_new_password">New password</string>
 </resources>

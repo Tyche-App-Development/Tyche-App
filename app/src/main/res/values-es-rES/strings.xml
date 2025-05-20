@@ -48,4 +48,9 @@
     <string name="invest_amount">Cantidad a invertir:</string>
     <string name="balance">Efectivo:</string>
     <string name="amount">Importe</string>
+    <string name="invest_warning">Al invertir en una estrategia, usted acepta las condiciones de compra y venta de la misma y asume el riesgo total de la inversión.  Invertir siempre conlleva un riesgo de pérdida total del capital invertido.</string>
+    <string name="hint_url_image">Nueva URL de la foto de perfil</string>
+    <string name="hint_api_key">Clave API</string>
+    <string name="hint_api_secret">Clave secreta API</string>
+    <string name="hint_new_password">Nueva contraseña</string>
 </resources>
