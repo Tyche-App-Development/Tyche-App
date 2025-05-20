@@ -90,13 +90,24 @@
 
             <EditText
                 android:id="@+id/editTextText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:layout_below="@+id/linearLayout"
                 android:gravity="center"
+                android:layout_weight="0.9"
                 android:inputType="text"
                 android:text="@string/amount"
                 android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/exo_2"
+                android:layout_weight="0.1"
+                android:text="€"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
