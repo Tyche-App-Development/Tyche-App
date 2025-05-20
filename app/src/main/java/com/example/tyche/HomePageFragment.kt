@@ -2,15 +2,11 @@ package com.example.tyche
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import com.example.tyche.api.ServiceBuilder
 import com.example.tyche.api.UserResponse
 import retrofit2.Call
@@ -28,7 +24,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class HomePageFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
     private var param2: String? = null
 
@@ -62,7 +58,7 @@ class HomePageFragment : Fragment() {
                 override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                     if (response.isSuccessful) {
                         val userProfile = response.body()
-                        nameTextView.text = userProfile?.user?.fullName ?: "Nome não encontrado"
+                        nameTextView.text = userProfile?.user?.name ?: "Nome não encontrado"
                     } else {
                         nameTextView.text = "Erro: ${response.code()}"
                     }
@@ -79,15 +75,6 @@ class HomePageFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomePageFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             HomePageFragment().apply {
@@ -95,6 +82,7 @@ class HomePageFragment : Fragment() {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
+
             }
     }
 }

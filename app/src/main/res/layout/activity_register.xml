@@ -99,6 +99,32 @@
                 android:textColorHint="#CCCCCC"
                 android:textSize="14sp" />
 
+
+            <EditText
+                android:id="@+id/apikey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:hint="ApiKey"
+                android:inputType="text"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#CCCCCC"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/secretkey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:hint="SecretKey"
+                android:inputType="text"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#CCCCCC"
+                android:textSize="14sp" />
+
+
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"

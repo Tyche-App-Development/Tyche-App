@@ -8,13 +8,37 @@ data class UserResponse(
 )
 
 data class UserProfile(
-    val id: Int,
+    val id: String,
     val username: String?,
     val email : String?,
-    val fullName : String?,
+    val name : String?,
     val nif: String?,
     val age: Int,
     @SerializedName("imageProfile") val imageProfile: String?,
     val apiKey: String?,
-    val amount: Int,
+    val apiSecret: String?,
+    val balance: Int,
+)
+
+data class RegisterRequest(
+    val username: String,
+    val password: String,
+    val name: String,
+    val email: String,
+    val age: Int,
+    val nif: String,
+    val balance: Int = 0,
+    val apiKey: String,
+    val apiSecret: String
+)
+
+data class RegisterResponse(
+    val message: String,
+    val user: BasicUser
+)
+
+data class BasicUser(
+    val id: String,
+    val username: String,
+    val email: String
 )

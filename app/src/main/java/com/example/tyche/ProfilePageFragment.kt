@@ -3,13 +3,13 @@ package com.example.tyche
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.tyche.api.ServiceBuilder
 import com.example.tyche.api.UserResponse
 import com.squareup.picasso.Picasso
@@ -68,7 +68,7 @@ class ProfilePageFragment : Fragment() {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if (response.isSuccessful) {
                     val userProfile = response.body()
-                    nameTextView.text = userProfile?.user?.fullName ?: "Nome não encontrado"
+                    nameTextView.text = userProfile?.user?.name ?: "Nome não encontrado"
                     usernameTextView.text = userProfile?.user?.username
                     emailTextView.text = userProfile?.user?.email
                     nifTextView.text = userProfile?.user?.nif

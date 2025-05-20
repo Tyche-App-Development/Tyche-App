@@ -16,4 +16,7 @@ interface Endpoints {
     @GET("profile")
     fun getUser(@Header("Authorization") token: String): Call<UserResponse>
 
+    @POST("register")
+    fun registerUser(@Body request: RegisterRequest): Call<RegisterResponse>
+
 }

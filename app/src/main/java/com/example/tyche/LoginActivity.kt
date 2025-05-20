@@ -22,7 +22,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
 
-    // SharedPreferences para salvar o token
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +30,6 @@ class LoginActivity : AppCompatActivity() {
         installSplashScreen()
         setContentView(R.layout.activity_login)
 
-        // Inicializa SharedPreferences
         sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
 
         usernameEditText = findViewById(R.id.username_input)
