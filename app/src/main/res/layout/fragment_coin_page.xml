@@ -5,10 +5,80 @@
     android:layout_height="match_parent"
     tools:context=".CoinPageFragment">
 
-    <com.github.mikephil.charting.charts.CandleStickChart
-        android:id="@+id/candleStickChart"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_margin="16dp"/>
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal"
+            android:padding="16dp">
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/caret_left_sm" />
 
+            <ImageView
+                android:id="@+id/logoImage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo"/>
+
+                <LinearLayout
+                    android:id="@+id/coinTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_below="@id/logoImage"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/coinName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/exo_2"
+                        android:text="XRP/EUR"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/subtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/exo_2"
+                        android:text="€2.0782"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"/>
+                    <TextView
+                        android:id="@+id/coin_pnl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/exo_2"
+                        android:text="-0.24%"
+                        android:textColor="#FF4444"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/xrp_logo"
+                    android:layout_marginTop="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/logoImage"/>
+            <com.github.mikephil.charting.charts.CandleStickChart
+                android:id="@+id/candleStickChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@+id/coinTitle"
+                android:layout_marginTop="16dp"/>
+        </RelativeLayout>
+    </ScrollView>
 </FrameLayout>
