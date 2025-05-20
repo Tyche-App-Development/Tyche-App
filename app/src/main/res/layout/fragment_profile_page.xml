@@ -145,32 +145,10 @@
                         android:background="?attr/selectableItemBackground"
                         android:fontFamily="@font/exo_2"
                         android:paddingVertical="12dp"
-                        android:text="Histórico"
+                        android:text="@string/history"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
-
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@android:color/white" />
-
-                    <Button
-                        android:gravity="start"
-                        android:paddingHorizontal="0dp"
-                        android:backgroundTint="#1A1A1A"
-                        android:id="@+id/adicionarFundos"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackground"
-                        android:fontFamily="@font/exo_2"
-                        android:paddingVertical="12dp"
-                        android:text="@string/add_funds"
-                        android:textColor="@android:color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
 
                     <View
                         android:id="@+id/divider"
@@ -209,24 +187,6 @@
                         android:background="@android:color/white" />
 
                     <Button
-                        android:gravity="start"
-                        android:paddingHorizontal="0dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="#1A1A1A"
-                        android:fontFamily="@font/exo_2"
-                        android:paddingVertical="12dp"
-                        android:text="@string/language"
-                        android:textColor="@android:color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@android:color/white" />
-
-                    <Button
                         android:id="@+id/editarInfo"
                         android:gravity="start"
                         android:layout_width="match_parent"
@@ -256,17 +216,9 @@
                     android:text="@string/logout"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
-                    android:layout_marginBottom="84dp"/>
+                    android:layout_marginBottom="120dp"/>
             </LinearLayout>
         </ScrollView>
-
-        <FrameLayout
-            android:id="@+id/navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="0dp" />
     </RelativeLayout>
 
 </FrameLayout>

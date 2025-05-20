@@ -29,10 +29,24 @@
     <string name="email">Email:</string>
     <string name="nif">NINO:</string>
     <string name="history">History</string>
-    <string name="add_funds">Add funds</string>
     <string name="notifications">Notifications</string>
     <string name="language">Language</string>
     <string name="edit_informations">Edit informations</string>
     <string name="logout">Logout</string>
     <string name="strategies">Strategies:</string>
+    <string name="create_strategy">Create Strategy</string>
+    <string name="select_asset">Select the asset:</string>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+    <string name="define_strategy">Define the strategy:</string>
+    <string name="safe_strategy">Low risk</string>
+    <string name="intermediate_strategy">Medium risk</string>
+    <string name="aggress_strategy">High risk</string>
+    <string name="safe_strat_description">Lower risk strategy that prioritizes smaller gains and less risky orders.</string>
+    <string name="int_strat_description">Intermediate risk strategy that takes greater risks in search of greater gains.</string>
+    <string name="aggress_strat_description">Most aggressive strategy available, takes greater risks when buying and selling, and can obtain the greatest gains.</string>
+    <string name="confirm">Confirm</string>
+    <string name="invest_amount">Amount to invest:</string>
+    <string name="balance">Balance:</string>
+    <string name="amount">Amount</string>
 </resources>

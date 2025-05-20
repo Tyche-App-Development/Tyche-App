@@ -28,10 +28,24 @@
     <string name="email">Email:</string>
     <string name="nif">NIF:</string>
     <string name="history">Histórico</string>
-    <string name="add_funds">Adicionar fundos</string>
     <string name="notifications">Notificações</string>
     <string name="language">Idioma</string>
     <string name="edit_informations">Editar informações</string>
     <string name="logout">Terminar sessão</string>
     <string name="strategies">Estratégias:</string>
+    <string name="create_strategy">Criar estratégia</string>
+    <string name="select_asset">Selecionar o produto:</string>
+    <string name="cancel">Cancelar</string>
+    <string name="next">Seguinte</string>
+    <string name="define_strategy">Defina a estratégia:</string>
+    <string name="safe_strategy">Baixo risco</string>
+    <string name="intermediate_strategy">Risco intermédio</string>
+    <string name="aggress_strategy">Alto risco</string>
+    <string name="safe_strat_description">Estratégia de menor risco que prioriza menores ganhos e ordens menos arriscadas.</string>
+    <string name="int_strat_description">Estratégia de risco risco intermédio que toma riscos maiores em procura de maiores ganhos.</string>
+    <string name="aggress_strat_description">Estratégia mais agressiva disponível, toma maiores riscos na compra e venda, podendo obter os maiores ganhos.</string>
+    <string name="confirm">Confirmar</string>
+    <string name="invest_amount">Montante a investir:</string>
+    <string name="balance">Numerário:</string>
+    <string name="amount">Montante</string>
 </resources>
