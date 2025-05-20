@@ -57,4 +57,5 @@ dependencies {
     implementation(libs.circleimageview)
     implementation(libs.picasso)
     implementation(libs.androidx.core.splashscreen)
+    implementation(libs.mpandroidchart)
 }

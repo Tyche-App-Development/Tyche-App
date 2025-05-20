@@ -2,16 +2,11 @@ package com.example.tyche
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.Gravity
-import android.widget.FrameLayout
-import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentTransaction
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NavMenuActivity : AppCompatActivity() {
@@ -41,7 +36,7 @@ class NavMenuActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.nav_frame, HomePageFragment())
+                        .replace(R.id.nav_frame, CoinPageFragment())
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit()
                     true
