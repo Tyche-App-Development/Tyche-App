@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -9,8 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -28,8 +27,8 @@
 
                 <ImageView
                     android:id="@+id/coin_image_1"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginEnd="8dp"
                     android:src="@drawable/bitcoin_btc_logo" />
 
@@ -108,10 +107,10 @@
 
                 <ImageView
                     android:id="@+id/coin_image_2"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginEnd="8dp"
-                    android:src="@drawable/ethereum_eth_logo" />
+                    android:src="@drawable/eth_logo" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -190,10 +189,10 @@
 
                 <ImageView
                     android:id="@+id/coin_image_3"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginEnd="8dp"
-                    android:src="@drawable/xrp_xrp_logo" />
+                    android:src="@drawable/xrp_logo" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -272,8 +271,8 @@
 
                 <ImageView
                     android:id="@+id/coin_image_4"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginEnd="8dp"
                     android:src="@drawable/solana_sol_logo" />
 
@@ -354,8 +353,8 @@
 
                 <ImageView
                     android:id="@+id/coin_image_5"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginEnd="8dp"
                     android:src="@drawable/bnb_bnb_logo" />
 
@@ -419,4 +418,4 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-</ScrollView>
+</FrameLayout>
