@@ -267,7 +267,6 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             android:layout_marginBottom="0dp" />
-
     </RelativeLayout>
 
 </FrameLayout>

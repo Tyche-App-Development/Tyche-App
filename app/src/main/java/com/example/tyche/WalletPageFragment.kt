@@ -37,6 +37,16 @@ class WalletPageFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_wallet_page, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val strategy_card = StrategyCardFragment()
+
+        childFragmentManager.beginTransaction()
+            .replace(R.id.strategy_card, strategy_card)
+            .commit()
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
