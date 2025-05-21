@@ -1,7 +1,10 @@
 package com.example.tyche
 
 import android.annotation.SuppressLint
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,13 +20,25 @@ class NavMenuActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_nav_menu)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        val rootView = findViewById<View>(R.id.main)
+        val navMenu = findViewById<BottomNavigationView>(R.id.nav_menu)
+
+        navMenu.itemRippleColor = ColorStateList.valueOf(Color.TRANSPARENT)
+        ViewCompat.setOnApplyWindowInsetsListener(rootView) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val navMenu = findViewById<BottomNavigationView>(R.id.nav_menu)
+        // Prevent BottomNavigationView from getting extra insets
+        ViewCompat.setOnApplyWindowInsetsListener(navMenu) { view, insets ->
+            view.setPadding(0, 0, 0, 0)
+            insets
+        }
+
+        // Optional: Also disable clipping, just in case
+        navMenu.clipToPadding = false
+        navMenu.clipChildren = false
 
         // Set initial fragment
         if (savedInstanceState == null) {
@@ -66,4 +81,5 @@ class NavMenuActivity : AppCompatActivity() {
             }
         }
     }
+
 }

@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
-                    android:layout_marginBottom="120dp">
+                    android:layout_marginBottom="80dp">
                     <FrameLayout
                         android:id="@+id/historyCards"
                         android:layout_width="match_parent"

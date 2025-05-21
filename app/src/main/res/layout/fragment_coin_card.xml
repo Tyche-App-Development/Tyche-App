@@ -33,7 +33,7 @@
                     android:id="@+id/coin_image_1"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:src="@drawable/bitcoin_btc_logo" />
 
                 <LinearLayout
@@ -45,9 +45,8 @@
                     <TextView
                         android:id="@+id/coin_symbol_1"
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:layout_weight="1"
                         android:fontFamily="@font/exo_2"
                         android:text="BTC/EUR"
                         android:textColor="#FFFFFF"
@@ -57,8 +56,7 @@
                     <TextView
                         android:id="@+id/coin_volume_1"
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
                         android:text="Vol: 100k"
                         android:textColor="#CCCCCC"
@@ -114,7 +112,7 @@
                     android:id="@+id/coin_image_2"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:src="@drawable/eth_logo" />
 
                 <LinearLayout
@@ -126,9 +124,8 @@
                     <TextView
                         android:id="@+id/coin_symbol_2"
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:layout_weight="1"
                         android:fontFamily="@font/exo_2"
                         android:text="BTC/EUR"
                         android:textColor="#FFFFFF"
@@ -138,8 +135,7 @@
                     <TextView
                         android:id="@+id/coin_volume_2"
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
                         android:text="Vol: 100k"
                         android:textColor="#CCCCCC"
@@ -176,8 +172,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- CARD 3 -->
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -198,7 +192,7 @@
                     android:id="@+id/coin_image_3"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:src="@drawable/xrp_logo" />
 
                 <LinearLayout
@@ -210,9 +204,8 @@
                     <TextView
                         android:id="@+id/coin_symbol_3"
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:layout_weight="1"
                         android:fontFamily="@font/exo_2"
                         android:text="BTC/EUR"
                         android:textColor="#FFFFFF"
@@ -222,8 +215,7 @@
                     <TextView
                         android:id="@+id/coin_volume_3"
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
                         android:text="Vol: 100k"
                         android:textColor="#CCCCCC"
@@ -260,8 +252,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- CARD 4 -->
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -281,7 +271,7 @@
                     android:id="@+id/coin_image_4"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:src="@drawable/solana_sol_logo" />
 
                 <LinearLayout
@@ -293,9 +283,8 @@
                     <TextView
                         android:id="@+id/coin_symbol_4"
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:layout_weight="1"
                         android:fontFamily="@font/exo_2"
                         android:text="BTC/EUR"
                         android:textColor="#FFFFFF"
@@ -305,8 +294,7 @@
                     <TextView
                         android:id="@+id/coin_volume_4"
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
                         android:text="Vol: 100k"
                         android:textColor="#CCCCCC"
@@ -343,8 +331,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- CARD 5 -->
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -364,7 +350,7 @@
                     android:id="@+id/coin_image_5"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:src="@drawable/bnb_bnb_logo" />
 
                 <LinearLayout
@@ -376,9 +362,8 @@
                     <TextView
                         android:id="@+id/coin_symbol_5"
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:layout_weight="1"
                         android:fontFamily="@font/exo_2"
                         android:text="BTC/EUR"
                         android:textColor="#FFFFFF"
@@ -388,8 +373,7 @@
                     <TextView
                         android:id="@+id/coin_volume_5"
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
                         android:text="Vol: 100k"
                         android:textColor="#CCCCCC"
@@ -425,6 +409,5 @@
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
     </LinearLayout>
 </FrameLayout>

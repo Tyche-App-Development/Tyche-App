@@ -16,18 +16,20 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_menu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         android:background="@drawable/nav_menu_bg"
+        android:fitsSystemWindows="false"
         app:itemIconTint="@color/nav_icon_color"
         app:itemTextColor="@color/nav_icon_color"
         app:itemRippleColor="@android:color/transparent"
-        app:itemBackground="@android:color/transparent"
+        app:itemBackground="@drawable/nav_item_background"
         app:menu="@menu/fragment_bottom_nav"
-        app:labelVisibilityMode="labeled"
-        app:itemIconSize="38dp"/>
-
-
-
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconSize="38dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        style="@style/NoRippleBottomNav"
+        />
 </RelativeLayout>

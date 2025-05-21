@@ -110,6 +110,7 @@
                         android:paddingVertical="12dp"
                         android:paddingHorizontal="0dp"
                         android:text="@string/edit_informations"
+                        android:fontFamily="@font/exo_2"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -131,7 +132,7 @@
                         android:text="@string/logout"
                         android:textColor="@android:color/black"
                         android:textSize="24sp"
-                        android:layout_marginBottom="120dp"/>
+                        android:layout_marginBottom="80dp"/>
                 </LinearLayout>
             </ScrollView>
 
@@ -172,6 +173,7 @@
                         android:id="@+id/fullName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/exo_2"
                         android:layout_marginTop="20dp"
                         android:text="Óscio Manuel Gomes Negócio"
                         android:textColor="@android:color/white"
@@ -192,6 +194,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="oscio_negocio"
+                        android:fontFamily="@font/exo_2"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -210,6 +213,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="oscio.negocio@gmail.com"
+                        android:fontFamily="@font/exo_2"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -228,10 +232,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="12345667"
+                        android:fontFamily="@font/exo_2"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="120dp"/>
+                        android:layout_marginBottom="80dp"/>
                 </LinearLayout>
             </ScrollView>
     </LinearLayout>
