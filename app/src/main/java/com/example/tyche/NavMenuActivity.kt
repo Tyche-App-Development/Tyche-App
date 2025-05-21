@@ -36,7 +36,7 @@ class NavMenuActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.nav_frame, CoinPageFragment())
+                        .replace(R.id.nav_frame, HomePageFragment())
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit()
                     true
