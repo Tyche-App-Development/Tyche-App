@@ -3,6 +3,7 @@ package com.example.tyche
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,9 +20,7 @@ import com.github.mikephil.charting.data.CandleEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
 import org.json.JSONObject
 import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
-
+import java.util.*
 
 class CoinPageFragment : Fragment() {
 
@@ -31,6 +30,7 @@ class CoinPageFragment : Fragment() {
     private var imageResId: Int? = null
 
     private var listener: ((String) -> Unit)? = null
+    private lateinit var chart: CandleStickChart
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,29 +45,60 @@ class CoinPageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_coin_page, container, false)
-    }
+    ): View = inflater.inflate(R.layout.fragment_coin_page, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val exoTypeface = ResourcesCompat.getFont(requireContext(), R.font.exo_2)
 
-        val symbolNow = symbol ?: ""
+        val symbolNow = symbol ?: return
         val subtitleView = view.findViewById<TextView>(R.id.subtitle)
         val pnlView = view.findViewById<TextView>(R.id.coin_pnl)
+        chart = view.findViewById(R.id.candleStickChart)
 
         view.findViewById<TextView>(R.id.coinName).text = symbolNow
-        subtitleView.text = price
-        pnlView.text = percent
+        subtitleView.text = price ?: ""
+        pnlView.text = percent ?: ""
         view.findViewById<ImageView>(R.id.coinLogoImage).setImageResource(imageResId ?: R.drawable.logo)
 
+        chart.apply {
+            setBackgroundColor(Color.TRANSPARENT)
+            description.isEnabled = false
+            legend.isEnabled = false
+            xAxis.apply {
+                valueFormatter = object : ValueFormatter() {
+                    override fun getFormattedValue(value: Float): String = ""
+                }
+                textColor = Color.WHITE
+                textSize = 12f
+                position = XAxis.XAxisPosition.BOTTOM
+                setDrawGridLines(true)
+                granularity = 1f
+                labelRotationAngle = -30f
+                typeface = exoTypeface
+                setLabelCount(7, true)
+            }
+            axisRight.apply {
+                textColor = Color.WHITE
+                textSize = 14f
+                setDrawGridLines(true)
+                typeface = exoTypeface
+                setLabelCount(12, true)
+            }
+            axisLeft.isEnabled = false
+        }
+
         WebSocketManager.connect()
+        WebSocketManager.requestKlines(symbolNow)
+
         listener = { text ->
             try {
                 val json = JSONObject(text)
-                if (json.getString("symbol") == symbolNow) {
+                val type = json.optString("type")
+                val symbolJson = json.optString("symbol")
+
+                if (type == "ticker" && symbolJson == symbolNow) {
                     val livePrice = json.getDouble("price")
                     val livePercent = json.getDouble("percent")
 
@@ -79,91 +110,79 @@ class CoinPageFragment : Fragment() {
                         subtitleView.text = formattedPrice
                         pnlView.text = formattedPercent
                         pnlView.setTextColor(pnlColor)
+
+                        // Atualiza o último candle em tempo real
+                        val candleData = chart.data
+                        val dataSet = candleData?.getDataSetByIndex(0) as? CandleDataSet
+                        val lastEntry = dataSet?.getEntryForIndex(dataSet.entryCount - 1)
+
+                        if (lastEntry != null) {
+                            lastEntry.close = livePrice.toFloat()
+                            if (livePrice > lastEntry.high) lastEntry.high = livePrice.toFloat()
+                            if (livePrice < lastEntry.low) lastEntry.low = livePrice.toFloat()
+
+                            candleData.notifyDataChanged()
+                            chart.notifyDataSetChanged()
+                            chart.invalidate()
+                        }
                     }
                 }
+
+                if (type == "klines" && symbolJson == symbolNow) {
+                    val dataArray = json.getJSONArray("data")
+                    Log.d("KLINES", "Recebidos ${dataArray.length()} candles para $symbolNow")
+                    val entries = mutableListOf<CandleEntry>()
+                    val timestamps = mutableListOf<Long>()
+
+                    for (i in 0 until dataArray.length()) {
+                        val candle = dataArray.getJSONArray(i)
+                        val timestamp = candle.getLong(0)
+                        val open = candle.getDouble(1).toFloat()
+                        val high = candle.getDouble(2).toFloat()
+                        val low = candle.getDouble(3).toFloat()
+                        val close = candle.getDouble(4).toFloat()
+
+                        entries.add(CandleEntry(i.toFloat(), high, low, open, close))
+                        timestamps.add(timestamp)
+                    }
+
+                    val dateFormatter = object : ValueFormatter() {
+                        private val sdf = SimpleDateFormat("dd/MM/yy", Locale.getDefault())
+                        override fun getFormattedValue(value: Float): String {
+                            val index = value.toInt()
+                            return if (index in timestamps.indices) {
+                                sdf.format(Date(timestamps[index]))
+                            } else ""
+                        }
+                    }
+
+                    val dataSet = CandleDataSet(entries, "Candlestick Data").apply {
+                        shadowColor = Color.DKGRAY
+                        shadowWidth = 1f
+                        decreasingColor = Color.RED
+                        decreasingPaintStyle = Paint.Style.FILL
+                        increasingColor = Color.GREEN
+                        increasingPaintStyle = Paint.Style.FILL
+                        neutralColor = Color.BLUE
+                        barSpace = 0.1f
+                    }
+
+                    val candleData = CandleData(dataSet)
+
+                    activity?.runOnUiThread {
+                        chart.data = candleData
+                        chart.xAxis.valueFormatter = dateFormatter
+                        chart.notifyDataSetChanged()
+                        chart.invalidate()
+                    }
+                }
+
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
+
         WebSocketManager.registerListener(listener!!)
-
-        val klineList = listOf(
-            listOf(1704585600000, 0.5678, 0.5717, 0.5483, 0.5512, 255912),
-            listOf(1704672000000, 0.5526, 0.5819, 0.5411, 0.577, 615559),
-            listOf(1704758400000, 0.5778, 0.5826, 0.5316, 0.5654, 847284),
-            listOf(1704844800000, 0.5668, 0.6134, 0.534, 0.6013, 813324),
-            listOf(1704931200000, 0.6015, 0.6251, 0.5846, 0.6029, 664096),
-            listOf(1705017600000, 0.6013, 0.6033, 0.55, 0.5702, 518873)
-        )
-
-        val entries = mutableListOf<CandleEntry>()
-        val timestamps = mutableListOf<Long>()
-
-        for ((index, kline) in klineList.withIndex()) {
-            val timestamp = kline[0].toLong()
-            val open = kline[1].toFloat()
-            val high = kline[2].toFloat()
-            val low = kline[3].toFloat()
-            val close = kline[4].toFloat()
-            entries.add(CandleEntry(index.toFloat(), high, low, open, close))
-            timestamps.add(timestamp)
-        }
-
-        val dateFormatter = object : ValueFormatter() {
-            private val sdf = SimpleDateFormat("dd/MM/yy", Locale.getDefault())
-            override fun getFormattedValue(value: Float): String {
-                val index = value.toInt()
-                return if (index in timestamps.indices) {
-                    sdf.format(Date(timestamps[index]))
-                } else {
-                    ""
-                }
-            }
-        }
-
-        val dataSet = CandleDataSet(entries, "Candlestick Data").apply {
-            shadowColor = Color.DKGRAY
-            shadowWidth = 1f
-            decreasingColor = Color.RED
-            decreasingPaintStyle = Paint.Style.FILL
-            increasingColor = Color.GREEN
-            increasingPaintStyle = Paint.Style.FILL
-            neutralColor = Color.BLUE
-            barSpace = 0.1f
-        }
-
-        val candleData = CandleData(dataSet)
-        val chart = view.findViewById<CandleStickChart>(R.id.candleStickChart)
-
-        chart.apply {
-            data = candleData
-            setBackgroundColor(Color.TRANSPARENT)
-            description.isEnabled = false
-            legend.isEnabled = false
-
-            xAxis.apply {
-                valueFormatter = dateFormatter
-                textColor = Color.WHITE
-                textSize = 12f
-                position = XAxis.XAxisPosition.BOTTOM
-                setDrawGridLines(true)
-                granularity = 1f
-                labelRotationAngle = -30f
-                typeface = exoTypeface
-                setLabelCount(7, true)
-            }
-
-            axisRight.apply {
-                textColor = Color.WHITE
-                textSize = 14f
-                setDrawGridLines(true)
-                typeface = exoTypeface
-                setLabelCount(12, true)
-            }
-
-            axisLeft.isEnabled = false
-            invalidate()
-        }
     }
 
     override fun onDestroyView() {
@@ -172,10 +191,12 @@ class CoinPageFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(symbol: String, imageResId: Int) =
+        fun newInstance(symbol: String, imageResId: Int, price: String = "", percent: String = "") =
             CoinPageFragment().apply {
                 arguments = Bundle().apply {
                     putString("symbol", symbol)
+                    putString("price", price)
+                    putString("percent", percent)
                     putInt("imageResId", imageResId)
                 }
             }

@@ -5,6 +5,8 @@ import okhttp3.Request
 import okhttp3.Response
 import okhttp3.WebSocket
 import okhttp3.WebSocketListener
+import org.json.JSONObject
+import org.slf4j.MDC.put
 
 object WebSocketManager {
 
@@ -45,6 +47,13 @@ object WebSocketManager {
     fun disconnect() {
         webSocket?.close(1000, null)
         webSocket = null
+    }
+
+    fun requestKlines(symbol: String) {
+        webSocket?.send(JSONObject().apply {
+            put("type", "get_klines")
+            put("symbol", symbol)
+        }.toString())
     }
 
     fun registerListener(listener: (String) -> Unit) {
