@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.tyche.network.WebSocketManager
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
@@ -18,18 +19,31 @@ class CoinCardFragment : Fragment() {
 
     private val client: OkHttpClient by lazy { OkHttpClient() }
     private lateinit var webSocket: WebSocket
+    private lateinit var rootView: View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_coin_card, container, false)
-        connectWebSocket()
-        return view
+        rootView = inflater.inflate(R.layout.fragment_coin_card, container, false)
+
+        WebSocketManager.connect()
+
+        WebSocketManager.registerListener { message ->
+            activity?.runOnUiThread {
+                handleWebSocketMessage(message)
+            }
+        }
+
+        setupCardClickListeners()
+        return rootView
     }
 
+
+
+
     private fun connectWebSocket() {
-        val request = Request.Builder().url("ws://192.168.0.135:3001").build()
+        val request = Request.Builder().url("ws://192.168.1.8:3001").build()
         webSocket = client.newWebSocket(request, object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {}
 
@@ -45,13 +59,15 @@ class CoinCardFragment : Fragment() {
         })
     }
 
+    private fun reconnectWebSocket() {
+        connectWebSocket()
+    }
+
     private fun handleWebSocketMessage(text: String) {
         try {
             val json = JSONObject(text)
 
-            if (!json.has("symbol") || !json.has("price") || !json.has("percent") || !json.has("volume")) {
-                return
-            }
+            if (!json.has("symbol") || !json.has("price") || !json.has("percent") || !json.has("volume")) return
 
             val symbol = json.getString("symbol")
             val price = json.getDouble("price")
@@ -65,12 +81,11 @@ class CoinCardFragment : Fragment() {
                 val pnlColor = if (percent >= 0) Color.GREEN else Color.RED
 
                 when (symbol) {
-                    "BTC/EUR" -> view?.let { updateCard(it, R.id.coin_symbol_1, R.id.coin_price_1, R.id.coin_pnl_1, R.id.coin_volume_1, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor) }
-                    "ETH/EUR" -> view?.let { updateCard(it, R.id.coin_symbol_2, R.id.coin_price_2, R.id.coin_pnl_2, R.id.coin_volume_2, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor) }
-                    "XRP/EUR" -> view?.let { updateCard(it, R.id.coin_symbol_3, R.id.coin_price_3, R.id.coin_pnl_3, R.id.coin_volume_3, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor) }
-                    "SOL/EUR" -> view?.let { updateCard(it, R.id.coin_symbol_4, R.id.coin_price_4, R.id.coin_pnl_4, R.id.coin_volume_4, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor) }
-                    "BNB/EUR" -> view?.let { updateCard(it, R.id.coin_symbol_5, R.id.coin_price_5, R.id.coin_pnl_5, R.id.coin_volume_5, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor) }
-                    else -> {}
+                    "BTC/EUR" -> updateCard(R.id.coin_symbol_1, R.id.coin_price_1, R.id.coin_pnl_1, R.id.coin_volume_1, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "ETH/EUR" -> updateCard(R.id.coin_symbol_2, R.id.coin_price_2, R.id.coin_pnl_2, R.id.coin_volume_2, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "XRP/EUR" -> updateCard(R.id.coin_symbol_3, R.id.coin_price_3, R.id.coin_pnl_3, R.id.coin_volume_3, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "SOL/EUR" -> updateCard(R.id.coin_symbol_4, R.id.coin_price_4, R.id.coin_pnl_4, R.id.coin_volume_4, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "BNB/EUR" -> updateCard(R.id.coin_symbol_5, R.id.coin_price_5, R.id.coin_pnl_5, R.id.coin_volume_5, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
                 }
             }
 
@@ -79,12 +94,7 @@ class CoinCardFragment : Fragment() {
         }
     }
 
-    private fun reconnectWebSocket() {
-        connectWebSocket()
-    }
-
     private fun updateCard(
-        view: View,
         symbolId: Int,
         priceId: Int,
         pnlId: Int,
@@ -95,17 +105,47 @@ class CoinCardFragment : Fragment() {
         volume: String,
         pnlColor: Int
     ) {
-        view.findViewById<TextView>(symbolId).text = symbol
-        view.findViewById<TextView>(priceId).text = price
-        view.findViewById<TextView>(pnlId).text = percent
-        val pnlTextView = view.findViewById<TextView>(pnlId)
-        pnlTextView.setTextColor(pnlColor)
-
-        view.findViewById<TextView>(volumeId).text = "Vol: " + volume
+        rootView.findViewById<TextView>(symbolId).text = symbol
+        rootView.findViewById<TextView>(priceId).text = price
+        rootView.findViewById<TextView>(pnlId).apply {
+            text = percent
+            setTextColor(pnlColor)
+        }
+        rootView.findViewById<TextView>(volumeId).text = "Vol: $volume"
     }
+
+    private fun setupCardClickListeners() {
+        rootView.findViewById<View>(R.id.coin_card_1)?.setOnClickListener { openCoinPage("BTC/EUR") }
+        rootView.findViewById<View>(R.id.coin_card_2)?.setOnClickListener { openCoinPage("ETH/EUR") }
+        rootView.findViewById<View>(R.id.coin_card_3)?.setOnClickListener { openCoinPage("XRP/EUR") }
+        rootView.findViewById<View>(R.id.coin_card_4)?.setOnClickListener { openCoinPage("SOL/EUR") }
+        rootView.findViewById<View>(R.id.coin_card_5)?.setOnClickListener { openCoinPage("BNB/EUR") }
+    }
+
+    private fun openCoinPage(symbol: String) {
+        val imageResId = when (symbol) {
+            "BTC/EUR" -> R.drawable.bitcoin_btc_logo
+            "ETH/EUR" -> R.drawable.eth_logo
+            "XRP/EUR" -> R.drawable.xrp_logo
+            "SOL/EUR" -> R.drawable.solana_sol_logo
+            "BNB/EUR" -> R.drawable.bnb_bnb_logo
+            else -> return
+        }
+
+        val fragment = CoinPageFragment.newInstance(symbol, imageResId)
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_frame, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
-        webSocket.cancel()
+        WebSocketManager.unregisterListener(::handleWebSocketMessage)
     }
+
 }

@@ -17,13 +17,17 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="#3A3939"
             android:gravity="center"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:id="@+id/coin_card_1"
+                >
 
                 <ImageView
                     android:id="@+id/coin_image_1"
@@ -97,7 +101,8 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="#3A3939"
             android:gravity="center"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+            android:id="@+id/coin_card_2">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -179,7 +184,9 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="#3A3939"
             android:gravity="center"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+            android:id="@+id/coin_card_3">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -261,7 +268,8 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="#3A3939"
             android:gravity="center"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+            android:id="@+id/coin_card_4">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -343,7 +351,8 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="#3A3939"
             android:gravity="center"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+            android:id="@+id/coin_card_5">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
