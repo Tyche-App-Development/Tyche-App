@@ -53,4 +53,10 @@
     <string name="hint_api_key">Chave da API</string>
     <string name="hint_api_secret">Chave secreta da API</string>
     <string name="hint_new_password">Nova palavra-passe</string>
+    <string name="coin_info_rank">Posição:</string>
+    <string name="coin_info_market_cap">Capitalização do mercado:</string>
+    <string name="coin_info_supply">Fornecimento em circulação:</string>
+    <string name="coin_info_high">Máximo histórico:</string>
+    <string name="coin_info_all_time_low">Mínimo histórico:</string>
+    <string name="coin_info_issue_date">Data de emissão:</string>
 </resources>
