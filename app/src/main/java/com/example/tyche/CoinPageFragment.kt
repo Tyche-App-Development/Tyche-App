@@ -19,6 +19,7 @@ import com.github.mikephil.charting.data.CandleDataSet
 import com.github.mikephil.charting.data.CandleEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
 import org.json.JSONObject
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -91,6 +92,11 @@ class CoinPageFragment : Fragment() {
 
         WebSocketManager.connect()
         WebSocketManager.requestKlines(symbolNow)
+
+        val coinId = mapSymbolToCoinId(symbolNow)
+        fetchCoinDetails(coinId, view)
+
+        symbol?.let { fetchCoinDetails(it.lowercase(Locale.ROOT), view) }
 
         listener = { text ->
             try {
@@ -201,4 +207,57 @@ class CoinPageFragment : Fragment() {
                 }
             }
     }
+
+    private fun mapSymbolToCoinId(symbol: String): String {
+        return when (symbol.uppercase(Locale.ROOT)) {
+            "BTC/EUR" -> "bitcoin"
+            "ETH/EUR" -> "ethereum"
+            "XRP/EUR" -> "ripple"
+            "SOL/EUR" -> "solana"
+            "BNB/EUR" -> "binancecoin"
+            else -> symbol.lowercase(Locale.ROOT)
+        }
+    }
+
+
+    private fun fetchCoinDetails(coinId: String, view: View) {
+        val url = "http://192.168.1.8:3001/api/auth/coin/$coinId"
+
+        val client = okhttp3.OkHttpClient()
+        val request = okhttp3.Request.Builder().url(url).build()
+
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("CoinDetails", "Erro: ${e.message}")
+            }
+
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                val responseBody = response.body?.string()
+                if (!response.isSuccessful || responseBody == null) return
+
+                try {
+                    val json = JSONObject(responseBody).getJSONObject("coin")
+                    val rank = json.getInt("rank")
+                    val supply = json.getDouble("circulating_supply")
+                    val marketCap = json.getDouble("market_cap_usd")
+                    val high = json.getDouble("all_time_high")
+                    val low = json.getDouble("all_time_low")
+                    val issueDate = json.getString("issue_date")
+
+                    activity?.runOnUiThread {
+                        view?.findViewById<TextView>(R.id.coinRank)?.text = "#$rank"
+                        view?.findViewById<TextView>(R.id.coinSupply)?.text = supply.toString()
+                        view?.findViewById<TextView>(R.id.coinMarketCap)?.text = "€%.2f".format(marketCap)
+                        view?.findViewById<TextView>(R.id.coinAllTimeHigh)?.text = "€%.2f".format(high)
+                        view?.findViewById<TextView>(R.id.coinAllTimeLow)?.text = "€%.2f".format(low)
+                        view?.findViewById<TextView>(R.id.coinIssueDate)?.text = issueDate
+                    }
+                } catch (e: Exception) {
+                    Log.e("CoinDetails", "Parse error: ${e.message}")
+                }
+            }
+
+        })
+    }
+
 }

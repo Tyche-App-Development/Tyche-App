@@ -16,6 +16,7 @@
             android:layout_marginTop="24dp"
             android:gravity="center_horizontal"
             android:padding="16dp">
+
             <ImageView
                 android:id="@+id/backBtn"
                 android:layout_width="wrap_content"
@@ -29,44 +30,47 @@
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/logo"/>
 
-                <LinearLayout
-                    android:id="@+id/coinTitle"
+            <LinearLayout
+                android:id="@+id/coinTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_below="@id/logoImage"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/coinName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:layout_below="@id/logoImage"
-                    android:layout_marginTop="24dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/coinName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo_2"
-                        android:text="XRP/EUR"
-                        android:textColor="@android:color/white"
-                        android:textSize="24sp"
-                        android:textStyle="bold"/>
+                    android:fontFamily="@font/exo_2"
+                    android:text="XRP/EUR"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
 
-                    <TextView
-                        android:id="@+id/subtitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo_2"
-                        android:text="€2.0782"
-                        android:textColor="@android:color/white"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="10dp"/>
-                    <TextView
-                        android:id="@+id/coin_pnl"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo_2"
-                        android:text="-0.24%"
-                        android:textColor="#FF4444"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/exo_2"
+                    android:text="€2.0782"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/coin_pnl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/exo_2"
+                    android:text="-0.24%"
+                    android:textColor="#FF4444"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
             <ImageView
                 android:id="@+id/coinLogoImage"
                 android:layout_width="64dp"
@@ -103,6 +107,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="120dp"
                 android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -110,6 +115,7 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginEnd="8dp">
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
@@ -132,6 +138,7 @@
                                 android:textSize="24sp"
                                 android:textStyle="bold" />
                             <TextView
+                                android:id="@+id/coinRank"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
@@ -142,6 +149,7 @@
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
@@ -164,6 +172,7 @@
                                 android:textSize="24sp"
                                 android:textStyle="bold" />
                             <TextView
+                                android:id="@+id/coinSupply"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
@@ -174,6 +183,7 @@
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
@@ -196,6 +206,7 @@
                                 android:textSize="24sp"
                                 android:textStyle="bold" />
                             <TextView
+                                android:id="@+id/coinAllTimeHigh"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
@@ -207,6 +218,7 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -214,6 +226,7 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginStart="8dp">
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
@@ -236,6 +249,7 @@
                                 android:textSize="24sp"
                                 android:textStyle="bold" />
                             <TextView
+                                android:id="@+id/coinMarketCap"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
@@ -246,6 +260,7 @@
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
@@ -268,6 +283,7 @@
                                 android:textSize="24sp"
                                 android:textStyle="bold" />
                             <TextView
+                                android:id="@+id/coinIssueDate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
@@ -278,6 +294,7 @@
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
@@ -300,6 +317,7 @@
                                 android:textSize="24sp"
                                 android:textStyle="bold" />
                             <TextView
+                                android:id="@+id/coinAllTimeLow"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
