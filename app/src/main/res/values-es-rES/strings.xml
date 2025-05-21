@@ -54,7 +54,7 @@
     <string name="hint_api_secret">Clave secreta API</string>
     <string name="hint_new_password">Nueva contraseña</string>
     <string name="coin_info_rank">Posición:</string>
-    <string name="coin_info_market_cap">Capitalización bursátil:</string>
+    <string name="coin_info_market_cap">Capitalización:</string>
     <string name="coin_info_supply">Oferta en circulación:</string>
     <string name="coin_info_high">Máximo histórico:</string>
     <string name="coin_info_all_time_low">Mínimo histórico:</string>
