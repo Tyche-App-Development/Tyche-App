@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.tyche.network.WebSocketManager
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -43,7 +44,7 @@ class CoinCardFragment : Fragment() {
 
 
     private fun connectWebSocket() {
-        val request = Request.Builder().url("ws://192.168.1.8:3001").build()
+        val request = Request.Builder().url("ws://10.0.2.2:3001").build()
         webSocket = client.newWebSocket(request, object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {}
 
@@ -136,12 +137,10 @@ class CoinCardFragment : Fragment() {
 
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.nav_frame, fragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .addToBackStack(null)
             .commit()
     }
-
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

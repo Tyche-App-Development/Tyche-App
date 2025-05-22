@@ -14,7 +14,7 @@ object WebSocketManager {
     private val client = OkHttpClient()
     private val listeners = mutableListOf<(String) -> Unit>()
 
-    private const val SOCKET_URL = "ws://192.168.1.8:3001"
+    private const val SOCKET_URL = "ws://10.0.2.2:3001"
 
     fun connect() {
         if (webSocket == null) {

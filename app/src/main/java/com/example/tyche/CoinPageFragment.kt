@@ -8,9 +8,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.example.tyche.api.ServiceBuilder
 import com.example.tyche.network.WebSocketManager
 import com.github.mikephil.charting.charts.CandleStickChart
@@ -33,6 +36,7 @@ class CoinPageFragment : Fragment() {
 
     private var listener: ((String) -> Unit)? = null
     private lateinit var chart: CandleStickChart
+    private lateinit var rootView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +51,14 @@ class CoinPageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_coin_page, container, false)
+    ): View {
+        rootView = inflater.inflate(R.layout.fragment_coin_page, container, false)
+
+        rootView.findViewById<Button>(R.id.createStratBtn)?.setOnClickListener { openStratPage() }
+        rootView.findViewById<ImageView>(R.id.backBtn)?.setOnClickListener { goBack() }
+
+        return rootView
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -261,4 +272,17 @@ class CoinPageFragment : Fragment() {
         })
     }
 
+    private fun openStratPage() {
+        val fragment = CreateStrategyPage2Fragment().
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_frame, fragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun goBack() {
+        requireActivity().onBackPressedDispatcher.onBackPressed()
+    }
 }
