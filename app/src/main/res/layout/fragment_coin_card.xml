@@ -58,7 +58,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="Vol: 100k"
+                        android:text="Vol: -"
                         android:textColor="#CCCCCC"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -75,7 +75,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="€81600"
+                        android:text="-"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -85,7 +85,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="-0.24%"
+                        android:text="-"
                         android:textColor="#FF4444"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -127,7 +127,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/exo_2"
-                        android:text="BTC/EUR"
+                        android:text="ETH/EUR"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -137,7 +137,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="Vol: 100k"
+                        android:text="Vol: -"
                         android:textColor="#CCCCCC"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -154,7 +154,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="€81600"
+                        android:text="-"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -164,7 +164,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="-0.24%"
+                        android:text="-"
                         android:textColor="#FF4444"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -207,7 +207,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/exo_2"
-                        android:text="BTC/EUR"
+                        android:text="XRP/EUR"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -217,7 +217,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="Vol: 100k"
+                        android:text="Vol: -"
                         android:textColor="#CCCCCC"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -234,7 +234,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="€81600"
+                        android:text="-"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -244,7 +244,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="-0.24%"
+                        android:text="-"
                         android:textColor="#FF4444"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -286,7 +286,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/exo_2"
-                        android:text="BTC/EUR"
+                        android:text="SOL/EUR"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -296,7 +296,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="Vol: 100k"
+                        android:text="Vol: -"
                         android:textColor="#CCCCCC"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -313,7 +313,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="€81600"
+                        android:text="-"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -323,7 +323,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="-0.24%"
+                        android:text="-"
                         android:textColor="#FF4444"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -365,7 +365,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/exo_2"
-                        android:text="BTC/EUR"
+                        android:text="BNB/EUR"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -375,7 +375,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="Vol: 100k"
+                        android:text="Vol: -"
                         android:textColor="#CCCCCC"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -392,7 +392,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="€81600"
+                        android:text="-"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -402,7 +402,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/exo_2"
-                        android:text="-0.24%"
+                        android:text="-"
                         android:textColor="#FF4444"
                         android:textSize="16sp"
                         android:textStyle="bold" />

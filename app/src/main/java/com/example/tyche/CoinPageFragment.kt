@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
+import com.example.tyche.api.ServiceBuilder
 import com.example.tyche.network.WebSocketManager
 import com.github.mikephil.charting.charts.CandleStickChart
 import com.github.mikephil.charting.components.XAxis
@@ -221,7 +222,7 @@ class CoinPageFragment : Fragment() {
 
 
     private fun fetchCoinDetails(coinId: String, view: View) {
-        val url = "http://192.168.1.8:3001/api/auth/coin/$coinId"
+        val url = ServiceBuilder.BASE_URL + "coin/$coinId"
 
         val client = okhttp3.OkHttpClient()
         val request = okhttp3.Request.Builder().url(url).build()
