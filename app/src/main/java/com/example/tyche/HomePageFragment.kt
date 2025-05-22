@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import com.example.tyche.api.BalanceResponse
 import com.example.tyche.api.ServiceBuilder
 import com.example.tyche.api.UserResponse
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -52,6 +55,46 @@ class HomePageFragment : Fragment() {
 
         val coinCardFragment = CoinCardFragment()
         val nameTextView = view.findViewById<TextView>(R.id.name)
+
+        val totalBalanceTextView = view.findViewById<TextView>(R.id.total_balance)
+
+        lifecycleScope.launch {
+            try {
+                val response = ServiceBuilder.apiService.getBalance("Bearer $token")
+                val formatted = "€%.2f".format(response.balanceEUR)
+                totalBalanceTextView.text = formatted
+            } catch (e: Exception) {
+                totalBalanceTextView.text = "Erro saldo: ${e.message}"
+            }
+        }
+
+        val lucroTextView = view.findViewById<TextView>(R.id.profit_text)
+        val pnlTextView = view.findViewById<TextView>(R.id.pnl_text)
+
+        lifecycleScope.launch {
+            try {
+                val profitResponse = ServiceBuilder.apiService.getProfitPNL("Bearer $token")
+                val pnlList = profitResponse.pnl
+
+                var totalProfit = 0.0
+                var totalInvestido = 0.0
+
+                for (item in pnlList) {
+                    totalProfit += item.profit
+                    totalInvestido += item.effectiveCost
+                }
+
+                val pnlPercent = if (totalInvestido > 0) (totalProfit / totalInvestido) * 100 else 0.0
+
+                lucroTextView.text = "Lucro: €%.2f".format(totalProfit)
+                pnlTextView.text = "PNL: %.2f%%".format(pnlPercent)
+
+            } catch (e: Exception) {
+                lucroTextView.text = "Erro lucro"
+                pnlTextView.text = "Erro PNL"
+            }
+        }
+
 
         ServiceBuilder.apiService.getUser("Bearer $token").enqueue(object :
             Callback<UserResponse> {

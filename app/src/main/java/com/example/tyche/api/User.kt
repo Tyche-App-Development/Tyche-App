@@ -17,7 +17,7 @@ data class UserProfile(
     @SerializedName("imageProfile") val imageProfile: String?,
     val apiKey: String?,
     val apiSecret: String?,
-    val balance: Int,
+    val balance: Float,
 )
 
 data class RegisterRequest(

@@ -129,7 +129,6 @@ class CoinPageFragment : Fragment() {
                         pnlView.text = formattedPercent
                         pnlView.setTextColor(pnlColor)
 
-                        // Atualiza o último candle em tempo real
                         val candleData = chart.data
                         val dataSet = candleData?.getDataSetByIndex(0) as? CandleDataSet
                         val lastEntry = dataSet?.getEntryForIndex(dataSet.entryCount - 1)
