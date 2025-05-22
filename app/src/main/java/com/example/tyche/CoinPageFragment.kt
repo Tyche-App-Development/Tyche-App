@@ -54,7 +54,7 @@ class CoinPageFragment : Fragment() {
     ): View {
         rootView = inflater.inflate(R.layout.fragment_coin_page, container, false)
 
-        rootView.findViewById<Button>(R.id.createStratBtn)?.setOnClickListener { openStratPage() }
+        rootView.findViewById<Button>(R.id.createStratBtn)?.setOnClickListener { openStrat2Page() }
         rootView.findViewById<ImageView>(R.id.backBtn)?.setOnClickListener { goBack() }
 
         return rootView
@@ -272,8 +272,8 @@ class CoinPageFragment : Fragment() {
         })
     }
 
-    private fun openStratPage() {
-        val fragment = CreateStrategyPage2Fragment().
+    private fun openStrat2Page() {
+        val fragment = CreateStrategyPage2Fragment.newInstance(symbol)
 
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.nav_frame, fragment)
