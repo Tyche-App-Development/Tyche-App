@@ -67,10 +67,13 @@
                     android:layout_height="match_parent" >
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/lowRisk"
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:layout_marginBottom="16dp"
-                        android:backgroundTint="#3A3939"
+                        app:cardBackgroundColor="#3A3939"
                         android:gravity="center"
                         app:cardCornerRadius="20dp">
                         <!-- BTC Card -->
@@ -101,10 +104,13 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/mediumRisk"
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:layout_marginBottom="16dp"
-                        android:backgroundTint="#3A3939"
+                        app:cardBackgroundColor="#3A3939"
                         android:gravity="center"
                         app:cardCornerRadius="20dp">
                         <!-- BTC Card -->
@@ -135,10 +141,13 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/highRisk"
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:layout_marginBottom="16dp"
-                        android:backgroundTint="#3A3939"
+                        app:cardBackgroundColor="#3A3939"
                         android:gravity="center"
                         app:cardCornerRadius="20dp">
                         <!-- BTC Card -->
@@ -169,7 +178,6 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </RadioGroup>
-
             </LinearLayout>
         </ScrollView>
 
@@ -197,8 +205,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/yellow"
+                android:backgroundTint="#3A3939"
                 android:fontFamily="@font/exo_2"
+                android:enabled="false"
                 android:text="@string/next"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"

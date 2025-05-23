@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:fontFamily="@font/exo_2"
-                android:text=" 999€"
+                android:text=" ---"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -90,13 +90,13 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/editAmount"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:fontFamily="@font/exo_2"
-                android:inputType="text"
-                android:text="@string/amount"
+                android:inputType="number"
+                android:hint="@string/amount"
                 android:textSize="16sp" />
 
             <TextView
@@ -129,7 +129,8 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:layout_marginBottom="80dp"
-            android:layout_alignParentBottom="true">
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="32dp">
             <Button
                 android:id="@+id/cancelButton"
                 android:layout_width="0dp"
@@ -146,8 +147,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/yellow"
+                android:backgroundTint="#3A3939"
                 android:fontFamily="@font/exo_2"
+                android:enabled="false"
                 android:text="@string/confirm"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"

@@ -102,7 +102,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="18dp"
                             android:fontFamily="@font/exo_2"
-                            android:text=" 999€"
+                            android:text=" ---"
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -122,7 +122,7 @@
                             android:gravity="center"
                             android:inputType="text"
                             android:fontFamily="@font/exo_2"
-                            android:text="@string/amount"
+                            android:hint="@string/amount"
                             android:textSize="16sp" />
 
                         <TextView
@@ -171,7 +171,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:backgroundTint="@color/yellow"
+                            android:backgroundTint="#3A3939"
+                            android:enabled="false"
                             android:fontFamily="@font/exo_2"
                             android:text="@string/confirm"
                             android:textColor="@android:color/black"
