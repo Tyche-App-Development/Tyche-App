@@ -70,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
 
                         saveToken(it.token)
 
-                        val intent = Intent(this@LoginActivity, NavMenuActivity::class.java)
+                        val intent = Intent(this@LoginActivity, IntroSlidersActivity::class.java)
                         startActivity(intent)
 
 
