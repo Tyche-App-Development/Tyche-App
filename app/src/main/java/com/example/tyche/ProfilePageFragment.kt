@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.tyche.api.ServiceBuilder
 import com.example.tyche.api.UserResponse
 import com.squareup.picasso.Picasso
@@ -32,6 +33,8 @@ class ProfilePageFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var rootView: View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -43,8 +46,10 @@ class ProfilePageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_profile_page, container, false)
+    ): View {
+        rootView = inflater.inflate(R.layout.fragment_profile_page, container, false)
+
+        return rootView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,6 +59,8 @@ class ProfilePageFragment : Fragment() {
         val token = sharedPreferences.getString("TOKEN_KEY", null)
 
         val btnLogout = view.findViewById<Button>(R.id.logoutButton)
+        val btnHistory = view.findViewById<Button>(R.id.historico)
+        val btnEditProfile = view.findViewById<Button>(R.id.editarInfo)
         val nameTextView = view.findViewById<TextView>(R.id.fullName)
         val usernameTextView = view.findViewById<TextView>(R.id.username)
         val emailTextView = view.findViewById<TextView>(R.id.email)
@@ -62,6 +69,14 @@ class ProfilePageFragment : Fragment() {
 
         btnLogout.setOnClickListener {
             logoutUser()
+        }
+
+        btnHistory.setOnClickListener {
+            openHistoryPage()
+        }
+
+        btnEditProfile.setOnClickListener {
+            openEditInfosPage()
         }
 
         ServiceBuilder.apiService.getUser("Bearer $token").enqueue(object : Callback<UserResponse> {
@@ -108,5 +123,25 @@ class ProfilePageFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private fun openHistoryPage() {
+        val fragment = HistoryPageFragment()
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_frame, fragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun openEditInfosPage() {
+        val fragment = EditProfilePageFragment()
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_frame, fragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .addToBackStack(null)
+            .commit()
     }
 }

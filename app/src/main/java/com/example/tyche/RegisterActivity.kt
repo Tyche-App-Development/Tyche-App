@@ -2,8 +2,10 @@ package com.example.tyche
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,13 +17,16 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
+
+    private lateinit var errorText: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
 
-
         val btnRegister = findViewById<Button>(R.id.login_button)
+        errorText = findViewById(R.id.errorText)
 
         btnRegister.setOnClickListener {
             val name = findViewById<EditText>(R.id.full_name).text.toString()
@@ -34,8 +39,21 @@ class RegisterActivity : AppCompatActivity() {
             val password = findViewById<EditText>(R.id.password).text.toString()
             val confirmPassword = findViewById<EditText>(R.id.confirm_password).text.toString()
 
-            if (password != confirmPassword) {
-                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+            if (name.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && nif.isNotEmpty() && age != 0 && apiKey.isNotEmpty() && apiSecret.isNotEmpty() &&  password.isNotEmpty() && confirmPassword.isNotEmpty()) {
+                errorText.visibility = View.GONE
+                if (age < 18) {
+                    errorText.visibility = View.VISIBLE
+                    errorText.text = getString(R.string.errorAge)
+                    return@setOnClickListener
+                }
+                if (password != confirmPassword) {
+                    errorText.visibility = View.VISIBLE
+                    errorText.text = getString(R.string.errorPassord)
+                    return@setOnClickListener
+                }
+            } else {
+                errorText.visibility = View.VISIBLE
+                errorText.text = getString(R.string.errorLoginReg)
                 return@setOnClickListener
             }
 
@@ -55,19 +73,25 @@ class RegisterActivity : AppCompatActivity() {
             retrofit.registerUser(request).enqueue(object : Callback<RegisterResponse> {
                 override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                     if (response.isSuccessful) {
-                        Toast.makeText(this@RegisterActivity, "User registered successfully!", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
-                        Toast.makeText(this@RegisterActivity, "Registration failed: ${response.message()}", Toast.LENGTH_LONG).show()
+                        errorText.visibility = View.VISIBLE
+                        errorText.text = getString(R.string.errorRegister)+ ": " + response.message()
                     }
                 }
 
                 override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                    Toast.makeText(this@RegisterActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
+                    errorText.visibility = View.VISIBLE
+                    errorText.text = getString(R.string.errorRegister)+ ": " + t.message
                 }
             })
+        }
+
+        findViewById<TextView>(R.id.already_have_account).setOnClickListener{
+            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }

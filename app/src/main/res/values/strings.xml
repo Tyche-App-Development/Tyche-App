@@ -60,4 +60,14 @@
     <string name="coin_info_high">All time high:</string>
     <string name="coin_info_all_time_low">All time low:</string>
     <string name="coin_info_issue_date">Issue date:</string>
+    <string name="errorLoginReg">Please fill out all fields.</string>
+    <string name="errorPassord">Passwords do not match.</string>
+    <string name="errorAge">You must be at least 18 years old to use this app.</string>
+    <string name="errorLogin">Login failed.</string>
+    <string name="errorRegister">Sign in failed.</string>
+    <string name="slider_2_text">Tyche is an application dedicated to creating passive income. Create your cryptocurrency trading strategy and let our algorithms and analysis systems determine the best investment decisions for you.</string>
+    <string name="slider_3_text">Manage your strategies quickly and easily and analyze their performance.</string>
+    <string name="slider_4_text">Check prices in real time.</string>
+    <string name="slide_5_text">Start earning now through your Binance® account.</string>
+    <string name="start">Start</string>
 </resources>

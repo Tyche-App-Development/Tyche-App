@@ -158,6 +158,17 @@
                 android:textColorHint="#CCCCCC"
                 android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/errorText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/exo_2"
+                android:text="@string/errorLoginReg"
+                android:visibility="gone"
+                android:textColor="#892E2E"
+                android:textSize="14sp" />
+
             <Button
                 android:id="@+id/login_button"
                 android:layout_width="match_parent"

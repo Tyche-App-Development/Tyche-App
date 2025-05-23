@@ -4,8 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -21,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var usernameEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
+    private lateinit var errorText: TextView
 
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -35,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
         usernameEditText = findViewById(R.id.username_input)
         passwordEditText = findViewById(R.id.password_input)
         loginButton = findViewById(R.id.login_button)
+        errorText = findViewById(R.id.errorText)
 
         loginButton.setOnClickListener {
             val username = usernameEditText.text.toString().trim()
@@ -42,9 +46,16 @@ class LoginActivity : AppCompatActivity() {
 
             if (username.isNotEmpty() && password.isNotEmpty()) {
                 login(username, password)
+                errorText.visibility = View.GONE
             } else {
-                Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
+                errorText.visibility = View.VISIBLE
+                errorText.text = getString(R.string.errorLoginReg)
             }
+        }
+
+        findViewById<TextView>(R.id.signup_link).setOnClickListener{
+            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -59,20 +70,20 @@ class LoginActivity : AppCompatActivity() {
 
                         saveToken(it.token)
 
-                        Toast.makeText(this@LoginActivity, "Login bem-sucedido! Token: ${it.token}", Toast.LENGTH_SHORT).show()
-
                         val intent = Intent(this@LoginActivity, NavMenuActivity::class.java)
                         startActivity(intent)
 
 
                     }
                 } else {
-                    Toast.makeText(this@LoginActivity, "Falha no login", Toast.LENGTH_SHORT).show()
+                    errorText.visibility = View.VISIBLE
+                    errorText.text = getString(R.string.errorLogin) + ": " + response.message()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(this@LoginActivity, "Falha na requisição: ${t.message}", Toast.LENGTH_SHORT).show()
+                errorText.visibility = View.VISIBLE
+                errorText.text = getString(R.string.errorLogin) + ": " + t.message
             }
         })
     }
