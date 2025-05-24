@@ -9,7 +9,7 @@ data class BalanceAsset(
 
 data class BalanceResponse(
     val message: String,
-    val balanceEUR: Double,
+    val balanceUSD: Double,
     val assets: List<BalanceAsset>
 )
 

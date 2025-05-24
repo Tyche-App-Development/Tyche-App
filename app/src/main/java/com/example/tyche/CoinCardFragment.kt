@@ -76,17 +76,17 @@ class CoinCardFragment : Fragment() {
             val volume = json.getDouble("volume")
 
             activity?.runOnUiThread {
-                val formattedPrice = "€%.2f".format(price)
+                val formattedPrice = "$%.2f".format(price)
                 val formattedPercent = "%+.2f%%".format(percent)
                 val formattedVolume = "%.2f".format(volume)
                 val pnlColor = if (percent >= 0) Color.GREEN else Color.RED
 
                 when (symbol) {
-                    "BTC/EUR" -> updateCard(R.id.coin_symbol_1, R.id.coin_price_1, R.id.coin_pnl_1, R.id.coin_volume_1, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "ETH/EUR" -> updateCard(R.id.coin_symbol_2, R.id.coin_price_2, R.id.coin_pnl_2, R.id.coin_volume_2, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "XRP/EUR" -> updateCard(R.id.coin_symbol_3, R.id.coin_price_3, R.id.coin_pnl_3, R.id.coin_volume_3, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "SOL/EUR" -> updateCard(R.id.coin_symbol_4, R.id.coin_price_4, R.id.coin_pnl_4, R.id.coin_volume_4, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "BNB/EUR" -> updateCard(R.id.coin_symbol_5, R.id.coin_price_5, R.id.coin_pnl_5, R.id.coin_volume_5, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "BTC/USDT" -> updateCard(R.id.coin_symbol_1, R.id.coin_price_1, R.id.coin_pnl_1, R.id.coin_volume_1, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "ETH/USDT" -> updateCard(R.id.coin_symbol_2, R.id.coin_price_2, R.id.coin_pnl_2, R.id.coin_volume_2, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "XRP/USDT" -> updateCard(R.id.coin_symbol_3, R.id.coin_price_3, R.id.coin_pnl_3, R.id.coin_volume_3, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "SOL/USDT" -> updateCard(R.id.coin_symbol_4, R.id.coin_price_4, R.id.coin_pnl_4, R.id.coin_volume_4, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "BNB/USDT" -> updateCard(R.id.coin_symbol_5, R.id.coin_price_5, R.id.coin_pnl_5, R.id.coin_volume_5, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
                 }
             }
 
@@ -116,20 +116,21 @@ class CoinCardFragment : Fragment() {
     }
 
     private fun setupCardClickListeners() {
-        rootView.findViewById<View>(R.id.coin_card_1)?.setOnClickListener { openCoinPage("BTC/EUR") }
-        rootView.findViewById<View>(R.id.coin_card_2)?.setOnClickListener { openCoinPage("ETH/EUR") }
-        rootView.findViewById<View>(R.id.coin_card_3)?.setOnClickListener { openCoinPage("XRP/EUR") }
-        rootView.findViewById<View>(R.id.coin_card_4)?.setOnClickListener { openCoinPage("SOL/EUR") }
-        rootView.findViewById<View>(R.id.coin_card_5)?.setOnClickListener { openCoinPage("BNB/EUR") }
+        rootView.findViewById<View>(R.id.coin_card_1)?.setOnClickListener { openCoinPage("BTC/USDT") }
+        rootView.findViewById<View>(R.id.coin_card_2)?.setOnClickListener { openCoinPage("ETH/USDT") }
+        rootView.findViewById<View>(R.id.coin_card_3)?.setOnClickListener { openCoinPage("XRP/USDT") }
+        rootView.findViewById<View>(R.id.coin_card_4)?.setOnClickListener { openCoinPage("SOL/USDT") }
+        rootView.findViewById<View>(R.id.coin_card_5)?.setOnClickListener { openCoinPage("BNB/USDT") }
     }
+
 
     private fun openCoinPage(symbol: String) {
         val imageResId = when (symbol) {
-            "BTC/EUR" -> R.drawable.bitcoin_btc_logo
-            "ETH/EUR" -> R.drawable.eth_logo
-            "XRP/EUR" -> R.drawable.xrp_logo
-            "SOL/EUR" -> R.drawable.solana_sol_logo
-            "BNB/EUR" -> R.drawable.bnb_bnb_logo
+            "BTC/USDT" -> R.drawable.bitcoin_btc_logo
+            "ETH/USDT" -> R.drawable.eth_logo
+            "XRP/USDT" -> R.drawable.xrp_logo
+            "SOL/USDT" -> R.drawable.solana_sol_logo
+            "BNB/USDT" -> R.drawable.bnb_bnb_logo
             else -> return
         }
 

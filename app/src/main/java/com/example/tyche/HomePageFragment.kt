@@ -61,7 +61,7 @@ class HomePageFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val response = ServiceBuilder.apiService.getBalance("Bearer $token")
-                val formatted = "€%.2f".format(response.balanceEUR)
+                val formatted = "$%.2f".format(response.balanceUSD)
                 totalBalanceTextView.text = formatted
             } catch (e: Exception) {
                 totalBalanceTextView.text = "Erro saldo: ${e.message}"
@@ -77,23 +77,27 @@ class HomePageFragment : Fragment() {
                 val pnlList = profitResponse.pnl
 
                 var totalProfit = 0.0
-                var totalInvestido = 0.0
 
                 for (item in pnlList) {
                     totalProfit += item.profit
-                    totalInvestido += item.effectiveCost
                 }
 
-                val pnlPercent = if (totalInvestido > 0) (totalProfit / totalInvestido) * 100 else 0.0
+                lucroTextView.text = "Lucro: $%.2f".format(totalProfit)
 
-                lucroTextView.text = "Lucro: €%.2f".format(totalProfit)
-                pnlTextView.text = "PNL: %.2f%%".format(pnlPercent)
+
+                if (pnlList.isNotEmpty()) {
+                    val avgPNL = pnlList.map { it.pnlPercent }.average()
+                    pnlTextView.text = "PNL: %.2f%%".format(avgPNL)
+                } else {
+                    pnlTextView.text = "PNL: 0.00%"
+                }
 
             } catch (e: Exception) {
                 lucroTextView.text = "Erro lucro"
                 pnlTextView.text = "Erro PNL"
             }
         }
+
 
 
         ServiceBuilder.apiService.getUser("Bearer $token").enqueue(object :

@@ -120,7 +120,7 @@ class CoinPageFragment : Fragment() {
                     val livePrice = json.getDouble("price")
                     val livePercent = json.getDouble("percent")
 
-                    val formattedPrice = "€%.2f".format(livePrice)
+                    val formattedPrice = "$%.2f".format(livePrice)
                     val formattedPercent = "%+.2f%%".format(livePercent)
                     val pnlColor = if (livePercent >= 0) Color.GREEN else Color.RED
 
@@ -221,11 +221,11 @@ class CoinPageFragment : Fragment() {
 
     private fun mapSymbolToCoinId(symbol: String): String {
         return when (symbol.uppercase(Locale.ROOT)) {
-            "BTC/EUR" -> "bitcoin"
-            "ETH/EUR" -> "ethereum"
-            "XRP/EUR" -> "ripple"
-            "SOL/EUR" -> "solana"
-            "BNB/EUR" -> "binancecoin"
+            "BTC/USDT" -> "bitcoin"
+            "ETH/USDT" -> "ethereum"
+            "XRP/USDT" -> "ripple"
+            "SOL/USDT" -> "solana"
+            "BNB/USDT" -> "binancecoin"
             else -> symbol.lowercase(Locale.ROOT)
         }
     }
@@ -258,9 +258,9 @@ class CoinPageFragment : Fragment() {
                     activity?.runOnUiThread {
                         view?.findViewById<TextView>(R.id.coinRank)?.text = "#$rank"
                         view?.findViewById<TextView>(R.id.coinSupply)?.text = supply.toString()
-                        view?.findViewById<TextView>(R.id.coinMarketCap)?.text = "€%.2f".format(marketCap)
-                        view?.findViewById<TextView>(R.id.coinAllTimeHigh)?.text = "€%.2f".format(high)
-                        view?.findViewById<TextView>(R.id.coinAllTimeLow)?.text = "€%.2f".format(low)
+                        view?.findViewById<TextView>(R.id.coinMarketCap)?.text = "$%.2f".format(marketCap)
+                        view?.findViewById<TextView>(R.id.coinAllTimeHigh)?.text = "$%.2f".format(high)
+                        view?.findViewById<TextView>(R.id.coinAllTimeLow)?.text = "$%.2f".format(low)
                         view?.findViewById<TextView>(R.id.coinIssueDate)?.text = issueDate
                     }
                 } catch (e: Exception) {
