@@ -74,29 +74,16 @@ class HomePageFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val profitResponse = ServiceBuilder.apiService.getProfitPNL("Bearer $token")
-                val pnlList = profitResponse.pnl
 
-                var totalProfit = 0.0
-
-                for (item in pnlList) {
-                    totalProfit += item.profit
-                }
-
-                lucroTextView.text = "Lucro: $%.2f".format(totalProfit)
-
-
-                if (pnlList.isNotEmpty()) {
-                    val avgPNL = pnlList.map { it.pnlPercent }.average()
-                    pnlTextView.text = "PNL: %.2f%%".format(avgPNL)
-                } else {
-                    pnlTextView.text = "PNL: 0.00%"
-                }
+                lucroTextView.text = "Lucro: $%.2f".format(profitResponse.profit)
+                pnlTextView.text = "PNL: %.2f%%".format(profitResponse.pnlPercent)
 
             } catch (e: Exception) {
                 lucroTextView.text = "Erro lucro"
                 pnlTextView.text = "Erro PNL"
             }
         }
+
 
 
 

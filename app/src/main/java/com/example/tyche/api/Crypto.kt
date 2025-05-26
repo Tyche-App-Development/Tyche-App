@@ -15,7 +15,9 @@ data class BalanceResponse(
 
 data class ProfitPNLResponse(
     val message: String,
-    val pnl: List<ProfitPNLItem>
+    val pnl: List<ProfitPNLItem>,
+    val profit: Double,
+    val pnlPercent: Double
 )
 
 data class ProfitPNLItem(
@@ -30,6 +32,25 @@ data class ProfitPNLItem(
     val profit: Double,
     val pnlPercent: Double
 )
+
+data class TradeHistoryResponse(
+    val message: String,
+    val trades: List<TradeItem>
+)
+
+data class TradeItem(
+    val id: String,
+    val tradeId: Int,
+    val id_user: String,
+    val symbol: String,
+    val price: Double,
+    val amount: Double,
+    val quoteQuantity: Double,
+    val gain_loss: Double,
+    val isBuyer: Boolean,
+    val timestamp: String
+)
+
 
 
 

@@ -28,4 +28,8 @@ interface Endpoints {
     suspend fun getProfitPNL(@Header("Authorization") token: String): ProfitPNLResponse
 
 
+    @GET("historytrade")
+    suspend fun getHistoryTrade(@Header("Authorization") token: String): TradeHistoryResponse
+
+
 }
