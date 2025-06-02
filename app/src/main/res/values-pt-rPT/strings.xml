@@ -60,7 +60,7 @@
     <string name="coin_info_all_time_low">Mínimo histórico:</string>
     <string name="coin_info_issue_date">Data de emissão:</string>
     <string name="errorLoginReg">Por favor, preencha todos os campos.</string>
-    <string name="errorPassord">As palavras-passe não coincidem.</string>
+    <string name="errorPassword">As palavras-passe não coincidem.</string>
     <string name="errorAge">Deve ter pelo menos 18 anos para usar esta app.</string>
     <string name="errorLogin">Início de sessão falhou.</string>
     <string name="errorRegister">Registo falhou.</string>
@@ -69,4 +69,5 @@
     <string name="slider_4_text">Consulte os preços em tempo real.</string>
     <string name="slide_5_text">Comece já a ganhar através da sua conta  Binance®.</string>
     <string name="start">Começar</string>
+    <string name="slider_skip_text">Ignorar</string>
 </resources>

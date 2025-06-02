@@ -35,6 +35,12 @@ class ProfilePageFragment : Fragment() {
 
     private lateinit var rootView: View
 
+    private var imgUrl: String? = null
+    private var fullname: String? = null
+    private var username: String? = null
+    private var email: String? = null
+    private var nif: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -83,6 +89,13 @@ class ProfilePageFragment : Fragment() {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if (response.isSuccessful) {
                     val userProfile = response.body()
+
+                    imgUrl = userProfile?.user?.imageProfile
+                    fullname = userProfile?.user?.name
+                    username = userProfile?.user?.username
+                    email = userProfile?.user?.email
+                    nif = userProfile?.user?.nif
+
                     nameTextView.text = userProfile?.user?.name ?: "Nome não encontrado"
                     usernameTextView.text = userProfile?.user?.username
                     emailTextView.text = userProfile?.user?.email
@@ -136,7 +149,7 @@ class ProfilePageFragment : Fragment() {
     }
 
     private fun openEditInfosPage() {
-        val fragment = EditProfilePageFragment()
+        val fragment = EditProfilePageFragment.newInstance(imgUrl, fullname, username, email, nif)
 
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.nav_frame, fragment)

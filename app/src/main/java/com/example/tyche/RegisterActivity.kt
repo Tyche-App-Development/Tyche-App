@@ -1,17 +1,19 @@
 package com.example.tyche
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tyche.api.RegisterRequest
 import com.example.tyche.api.RegisterResponse
 import com.example.tyche.api.ServiceBuilder
+import com.example.tyche.models.LoginRequest
+import com.example.tyche.models.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,6 +21,8 @@ import retrofit2.Response
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var errorText: TextView
+
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +52,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 if (password != confirmPassword) {
                     errorText.visibility = View.VISIBLE
-                    errorText.text = getString(R.string.errorPassord)
+                    errorText.text = getString(R.string.errorPassword)
                     return@setOnClickListener
                 }
             } else {
@@ -73,9 +77,7 @@ class RegisterActivity : AppCompatActivity() {
             retrofit.registerUser(request).enqueue(object : Callback<RegisterResponse> {
                 override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                     if (response.isSuccessful) {
-                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                        login(username, password)
                     } else {
                         errorText.visibility = View.VISIBLE
                         errorText.text = getString(R.string.errorRegister)+ ": " + response.message()
@@ -93,5 +95,40 @@ class RegisterActivity : AppCompatActivity() {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun login(username: String, password: String) {
+        val loginRequest = LoginRequest(username, password)
+
+        ServiceBuilder.apiService.login(loginRequest).enqueue(object : Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                if (response.isSuccessful) {
+                    val loginResponse = response.body()
+                    loginResponse?.let {
+
+                        saveToken(it.token)
+
+                        val intent = Intent(this@RegisterActivity, IntroSlidersActivity::class.java)
+                        startActivity(intent)
+
+
+                    }
+                } else {
+                    errorText.visibility = View.VISIBLE
+                    errorText.text = getString(R.string.errorLogin) + ": " + response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                errorText.visibility = View.VISIBLE
+                errorText.text = getString(R.string.errorLogin) + ": " + t.message
+            }
+        })
+    }
+
+    private fun saveToken(token: String) {
+        val editor = sharedPreferences.edit()
+        editor.putString("TOKEN_KEY", token)
+        editor.apply()
     }
 }
