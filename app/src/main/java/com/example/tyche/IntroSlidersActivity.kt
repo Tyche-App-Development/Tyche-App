@@ -14,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 class IntroSlidersActivity : AppCompatActivity() {
 
     private lateinit var nextButton: Button
+    private lateinit var skipButton: Button
     private lateinit var viewPager: ViewPager2
     private lateinit var layouts: Array<Int>
 
@@ -29,6 +30,7 @@ class IntroSlidersActivity : AppCompatActivity() {
         }
 
         nextButton = findViewById(R.id.nextButton)
+        skipButton = findViewById(R.id.skipButton)
         viewPager = findViewById(R.id.viewPager)
 
         layouts = arrayOf(
@@ -74,6 +76,8 @@ class IntroSlidersActivity : AppCompatActivity() {
                 openHomePage()
             }
         }
+
+        skipButton.setOnClickListener { openHomePage() }
     }
 
     private fun openHomePage() {

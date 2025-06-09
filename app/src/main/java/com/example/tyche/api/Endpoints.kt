@@ -11,6 +11,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.PUT
 
 interface Endpoints {
 
@@ -49,6 +50,9 @@ interface Endpoints {
 
 
 
+
+    @PUT("profile")
+    fun editUserProfile(@Header("Authorization") token: String, @Body request: EditProfileRequest): Call<EditProfileResponse>
 
 
 }
