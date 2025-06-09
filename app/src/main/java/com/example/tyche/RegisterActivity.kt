@@ -110,8 +110,6 @@ class RegisterActivity : AppCompatActivity() {
 
                         val intent = Intent(this@RegisterActivity, IntroSlidersActivity::class.java)
                         startActivity(intent)
-
-
                     }
                 } else {
                     errorText.visibility = View.VISIBLE
