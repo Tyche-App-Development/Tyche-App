@@ -132,7 +132,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginEnd="10dp"
                             android:fontFamily="@font/exo_2"
-                            android:text="€"
+                            android:text="$"
                             android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold" />

@@ -43,9 +43,10 @@
                         android:src="@drawable/bitcoin_btc_logo" />
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="51dp"
+
+                        android:layout_gravity="center_vertical"
                         android:orientation="vertical">
 
                         <TextView
@@ -55,47 +56,18 @@
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/exo_2"
                             android:text="BTC/EUR"
+
                             android:textColor="#FFFFFF"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/coin_volume_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="Vol: -"
-                            android:textColor="#CCCCCC"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="end"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/coin_price_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="-"
-                            android:textColor="#FFFFFF"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/coin_pnl_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="-"
-                            android:textColor="#FF4444"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                        android:orientation="vertical"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -140,43 +112,13 @@
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/coin_volume_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="Vol: -"
-                            android:textColor="#CCCCCC"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="end"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/coin_price_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="-"
-                            android:textColor="#FFFFFF"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/coin_pnl_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="-"
-                            android:textColor="#FF4444"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                        android:orientation="vertical"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -222,43 +164,8 @@
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/coin_volume_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="Vol: -"
-                            android:textColor="#CCCCCC"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="end"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/coin_price_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="-"
-                            android:textColor="#FFFFFF"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/coin_pnl_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="-"
-                            android:textColor="#FF4444"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -303,43 +210,13 @@
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/coin_volume_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="Vol: -"
-                            android:textColor="#CCCCCC"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="end"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/coin_price_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="-"
-                            android:textColor="#FFFFFF"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/coin_pnl_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="-"
-                            android:textColor="#FF4444"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                        android:orientation="vertical"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -384,43 +261,13 @@
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/coin_volume_5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="Vol: -"
-                            android:textColor="#CCCCCC"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="end"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/coin_price_5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="-"
-                            android:textColor="#FFFFFF"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/coin_pnl_5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/exo_2"
-                            android:text="-"
-                            android:textColor="#FF4444"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                        android:orientation="vertical"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </RadioGroup>

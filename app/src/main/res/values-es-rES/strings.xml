@@ -1,13 +1,10 @@
 <resources>
-    <!-- Login -->
     <string name="app_name">Tyche</string>
     <string name="hint_username">Nombre de usuario</string>
     <string name="hint_password">Contraseña</string>
     <string name="login_button">Iniciar sesión</string>
     <string name="signup_link">¿No tienes una cuenta? Haz clic aquí.</string>
     <string name="footer_text">Crear riqueza sin esfuerzo</string>
-
-    <!-- Registro -->
     <string name="hint_full_name">Nombre completo</string>
     <string name="hint_email">Correo electrónico</string>
     <string name="hint_nif">NIF</string>
@@ -20,7 +17,7 @@
     <string name="menu_market">Mercado</string>
     <string name="menu_wallet">Cartera</string>
     <string name="menu_profile">Perfil</string>
-    <string name="coin_volume">Volume</string>
+    <string name="coin_volume">Volumen</string>
     <string name="welcome">Bienvenido</string>
     <string name="profit">Beneficio</string>
     <string name="market">Mercado:</string>
@@ -49,6 +46,16 @@
     <string name="balance">Efectivo:</string>
     <string name="amount">Importe</string>
     <string name="invest_warning">Al invertir en una estrategia, usted acepta las condiciones de compra y venta de la misma y asume el riesgo total de la inversión.  Invertir siempre conlleva un riesgo de pérdida total del capital invertido.</string>
+    <string name="last_action_label">Última Acción: %1$s</string>
+    <string name="action_buy">COMPRA</string>
+    <string name="action_sell">VENTA</string>
+    <string name="action_none">NINGUNA</string>
+    <string name="currency_format">$%1$s</string>
+    <string name="percentage_format">%1$s%2$s%%</string>
+    <string name="buy_price_label">Precio de Compra</string>
+    <string name="current_balance_label">Saldo Actual</string>
+    <string name="no_strategies_found">No se encontraron estrategias</string>
+    <string name="strategy_click_message">Estrategia: %1$s\nSaldo: €%2$s</string>
     <string name="hint_url_image">Nueva URL de la foto de perfil</string>
     <string name="hint_api_key">Clave API</string>
     <string name="hint_api_secret">Clave secreta API</string>
@@ -64,7 +71,7 @@
     <string name="errorAge">Debes tener al menos 18 años para utilizar esta aplicación.</string>
     <string name="errorLogin">Login fallido.</string>
     <string name="errorRegister">Registro fallido.</string>
-    <string name="slider_2_text">Tyche es una aplicación dedicada a la creación de beneficios pasivos.</string>
+    <string name="slider_2_text">Tyche es una aplicación dedicada a la creación de beneficios pasivos. Crea tu estrategia de trading de criptomonedas y deja que nuestros algoritmos y sistemas de análisis determinen las mejores decisiones de inversión para ti.</string>
     <string name="slider_3_text">Gestione rápida y fácilmente sus estrategias y analice su rendimiento.</string>
     <string name="slider_4_text">Consulte los precios en tiempo real.</string>
     <string name="slide_5_text">Empieza a ganar ahora con tu cuenta Binance®.</string>

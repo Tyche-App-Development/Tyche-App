@@ -20,7 +20,6 @@ import okhttp3.WebSocketListener
 import org.json.JSONObject
 
 // TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
@@ -105,11 +104,11 @@ class CoinSelectionFragment : Fragment() {
                 val pnlColor = if (percent >= 0) Color.GREEN else Color.RED
 
                 when (symbol) {
-                    "BTC/EUR" -> updateCard(R.id.coin_symbol_1, R.id.coin_price_1, R.id.coin_pnl_1, R.id.coin_volume_1, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "ETH/EUR" -> updateCard(R.id.coin_symbol_2, R.id.coin_price_2, R.id.coin_pnl_2, R.id.coin_volume_2, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "XRP/EUR" -> updateCard(R.id.coin_symbol_3, R.id.coin_price_3, R.id.coin_pnl_3, R.id.coin_volume_3, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "SOL/EUR" -> updateCard(R.id.coin_symbol_4, R.id.coin_price_4, R.id.coin_pnl_4, R.id.coin_volume_4, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "BNB/EUR" -> updateCard(R.id.coin_symbol_5, R.id.coin_price_5, R.id.coin_pnl_5, R.id.coin_volume_5, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "BTC/USDT" -> updateCard(R.id.coin_symbol_1, R.id.coin_price_1, R.id.coin_pnl_1, R.id.coin_volume_1, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "ETH/USDT" -> updateCard(R.id.coin_symbol_2, R.id.coin_price_2, R.id.coin_pnl_2, R.id.coin_volume_2, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "XRP/USDT" -> updateCard(R.id.coin_symbol_3, R.id.coin_price_3, R.id.coin_pnl_3, R.id.coin_volume_3, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "SOL/USDT" -> updateCard(R.id.coin_symbol_4, R.id.coin_price_4, R.id.coin_pnl_4, R.id.coin_volume_4, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "BNB/USDT" -> updateCard(R.id.coin_symbol_5, R.id.coin_price_5, R.id.coin_pnl_5, R.id.coin_volume_5, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
                 }
             }
 
@@ -151,7 +150,7 @@ class CoinSelectionFragment : Fragment() {
             card3.setCardBackgroundColor(Color.parseColor("#3A3939"))
             card4.setCardBackgroundColor(Color.parseColor("#3A3939"))
             card5.setCardBackgroundColor(Color.parseColor("#3A3939"))
-            symbol = "BTC/EUR"
+            symbol = "BTC/USDT"
             symbolSelectedListener?.onSymbolSelected(symbol!!, true)
         }
         card2.setOnClickListener {
@@ -160,7 +159,7 @@ class CoinSelectionFragment : Fragment() {
             card3.setCardBackgroundColor(Color.parseColor("#3A3939"))
             card4.setCardBackgroundColor(Color.parseColor("#3A3939"))
             card5.setCardBackgroundColor(Color.parseColor("#3A3939"))
-            symbol = "ETH/EUR"
+            symbol = "ETH/USDT"
             symbolSelectedListener?.onSymbolSelected(symbol!!, true)
         }
         card3.setOnClickListener {
@@ -169,7 +168,7 @@ class CoinSelectionFragment : Fragment() {
             card3.setCardBackgroundColor(Color.parseColor("#AE8022"))
             card4.setCardBackgroundColor(Color.parseColor("#3A3939"))
             card5.setCardBackgroundColor(Color.parseColor("#3A3939"))
-            symbol = "XRP/EUR"
+            symbol = "XRP/USDT"
             symbolSelectedListener?.onSymbolSelected(symbol!!, true)
         }
         card4.setOnClickListener {
@@ -178,7 +177,7 @@ class CoinSelectionFragment : Fragment() {
             card3.setCardBackgroundColor(Color.parseColor("#3A3939"))
             card4.setCardBackgroundColor(Color.parseColor("#AE8022"))
             card5.setCardBackgroundColor(Color.parseColor("#3A3939"))
-            symbol = "SOL/EUR"
+            symbol = "SOL/USDT"
             symbolSelectedListener?.onSymbolSelected(symbol!!, true)
         }
         card5.setOnClickListener {
@@ -187,7 +186,7 @@ class CoinSelectionFragment : Fragment() {
             card3.setCardBackgroundColor(Color.parseColor("#3A3939"))
             card4.setCardBackgroundColor(Color.parseColor("#3A3939"))
             card5.setCardBackgroundColor(Color.parseColor("#AE8022"))
-            symbol = "BNB/EUR"
+            symbol = "BNB/USDT"
             symbolSelectedListener?.onSymbolSelected(symbol!!, true)
         }
     }

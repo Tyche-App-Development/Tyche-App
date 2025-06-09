@@ -17,7 +17,6 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class CreateStrategyPage2Fragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var symbol: String? = null
@@ -59,7 +58,7 @@ class CreateStrategyPage2Fragment : Fragment() {
             cardSafe.setCardBackgroundColor(Color.parseColor("#AE8022"))
             cardIntermediate.setCardBackgroundColor(Color.parseColor("#3A3939"))
             cardAggressive.setCardBackgroundColor(Color.parseColor("#3A3939"))
-            strategy = "low risk"
+            strategy = "Low"
             nextButton.isEnabled = true
             nextButton.setBackgroundColor(Color.parseColor("#E8AF3B"))
         }
@@ -68,7 +67,7 @@ class CreateStrategyPage2Fragment : Fragment() {
             cardSafe.setCardBackgroundColor(Color.parseColor("#3A3939"))
             cardIntermediate.setCardBackgroundColor(Color.parseColor("#AE8022"))
             cardAggressive.setCardBackgroundColor(Color.parseColor("#3A3939"))
-            strategy = "medium risk"
+            strategy = "Medium"
             nextButton.isEnabled = true
             nextButton.setBackgroundColor(Color.parseColor("#E8AF3B"))
         }
@@ -77,7 +76,7 @@ class CreateStrategyPage2Fragment : Fragment() {
             cardSafe.setCardBackgroundColor(Color.parseColor("#3A3939"))
             cardIntermediate.setCardBackgroundColor(Color.parseColor("#3A3939"))
             cardAggressive.setCardBackgroundColor(Color.parseColor("#AE8022"))
-            strategy = "high risk"
+            strategy = "High"
             nextButton.isEnabled = true
             nextButton.setBackgroundColor(Color.parseColor("#E8AF3B"))
         }

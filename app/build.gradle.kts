@@ -7,6 +7,10 @@ android {
     namespace = "com.example.tyche"
     compileSdk = 35
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.tyche"
         minSdk = 24

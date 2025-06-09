@@ -1,6 +1,8 @@
 package com.example.tyche.api
 
 
+import UsdtBalanceResponse
+import UserStrategiesResponse
 import com.example.tyche.models.LoginRequest
 import com.example.tyche.models.LoginResponse
 import retrofit2.Call
@@ -24,12 +26,29 @@ interface Endpoints {
     @GET("balance")
     suspend fun getBalance(@Header("Authorization") token: String): BalanceResponse
 
+    @GET("balanceusdt")
+    suspend fun getBalanceUSDT(@Header("Authorization") token: String): UsdtBalanceResponse
+
     @GET("profitpnl")
     suspend fun getProfitPNL(@Header("Authorization") token: String): ProfitPNLResponse
 
 
     @GET("historytrade")
     suspend fun getHistoryTrade(@Header("Authorization") token: String): TradeHistoryResponse
+
+    @POST("user-strategy")
+    suspend fun sendStrategy(
+        @Header("Authorization") token: String,
+        @Body strategy: Strategy
+    ): Response<Void>
+
+    @GET("strategy/info")
+    suspend fun getUserStrategies(
+        @Header("Authorization") token: String
+    ): UserStrategiesResponse
+
+
+
 
 
 }

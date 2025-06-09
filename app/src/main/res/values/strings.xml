@@ -1,13 +1,10 @@
 <resources>
-    <!-- Login -->
     <string name="app_name">Tyche</string>
     <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
     <string name="login_button">Log In</string>
-    <string name="signup_link">Don’t have an account? Click here.</string>
+    <string name="signup_link">Don\'t have an account? Click here.</string>
     <string name="footer_text">Create wealth effortlessly</string>
-
-    <!-- Register -->
     <string name="hint_full_name">Full name</string>
     <string name="hint_email">Email</string>
     <string name="hint_nif">NIF</string>
@@ -15,7 +12,6 @@
     <string name="hint_confirm_password">Confirm password</string>
     <string name="register_button">Register</string>
     <string name="already_have_account">Already have an account? Click here.</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_home">Home</string>
     <string name="menu_market">Market</string>
@@ -50,6 +46,16 @@
     <string name="balance">Balance:</string>
     <string name="amount">Amount</string>
     <string name="invest_warning">By investing in a strategy you accept the terms of purchase and sale of the strategy and assume the full risk of the investment.  Investing always carries a risk of total loss of the capital invested.</string>
+    <string name="last_action_label">Last Action: %1$s</string>
+    <string name="action_buy">BUY</string>
+    <string name="action_sell">SELL</string>
+    <string name="action_none">NONE</string>
+    <string name="currency_format">$%1$s</string>
+    <string name="percentage_format">%1$s%2$s%%</string>
+    <string name="buy_price_label">Buy Price</string>
+    <string name="current_balance_label">Current Balance</string>
+    <string name="no_strategies_found">No strategies found</string>
+    <string name="strategy_click_message">Strategy: %1$s\nBalance: €%2$s</string>
     <string name="hint_url_image">New profile image url</string>
     <string name="hint_api_key">API Key</string>
     <string name="hint_api_secret">API Secret</string>
@@ -70,4 +76,5 @@
     <string name="slider_4_text">Check prices in real time.</string>
     <string name="slide_5_text">Start earning now through your Binance® account.</string>
     <string name="start">Start</string>
+
 </resources>

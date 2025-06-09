@@ -69,4 +69,14 @@
     <string name="slider_4_text">Consulte os preços em tempo real.</string>
     <string name="slide_5_text">Comece já a ganhar através da sua conta  Binance®.</string>
     <string name="start">Começar</string>
+    <string name="last_action_label">Última Ação: %1$s</string>
+    <string name="action_buy">COMPRA</string>
+    <string name="action_sell">VENDA</string>
+    <string name="action_none">NENHUMA</string>
+    <string name="currency_format">$%1$s</string>
+    <string name="percentage_format">%1$s%2$s%%</string>
+    <string name="buy_price_label">Preço de Compra</string>
+    <string name="current_balance_label">Saldo Atual</string>
+    <string name="no_strategies_found">Nenhuma estratégia encontrada</string>
+    <string name="strategy_click_message">Estratégia: %1$s\nSaldo: €%2$s</string>
 </resources>
