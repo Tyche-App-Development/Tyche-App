@@ -67,7 +67,6 @@
     <string name="coin_info_all_time_low">Mínimo histórico:</string>
     <string name="coin_info_issue_date">Fecha de emisión:</string>
     <string name="errorLoginReg">Rellene todos los campos.</string>
-    <string name="errorPassword">Las contraseñas no coinciden.</string>
     <string name="errorAge">Debes tener al menos 18 años para utilizar esta aplicación.</string>
     <string name="errorLogin">Login fallido.</string>
     <string name="errorRegister">Registro fallido.</string>
@@ -77,4 +76,6 @@
     <string name="slide_5_text">Empieza a ganar ahora con tu cuenta Binance®.</string>
     <string name="start">Comenzar</string>
     <string name="slider_skip_text">Ignora</string>
+    <string name="errorPassword">Las contraseñas no coinciden.</string>
+
 </resources>
