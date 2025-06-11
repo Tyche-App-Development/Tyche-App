@@ -80,6 +80,7 @@ class StrategiesAdapter(
                     ContextCompat.getColor(itemView.context, R.color.pure_red)
             )
 
+
             setCoinImage(strategy.trading.pair)
         }
 
