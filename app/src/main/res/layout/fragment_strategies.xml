@@ -8,10 +8,8 @@
         android:id="@+id/strategies_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="16dp"
         android:paddingBottom="600dp"
         android:clipToPadding="false"
-        android:background="#1b1a1b"
         android:scrollbars="vertical"
         tools:listitem="@layout/item_strategy_card" />
 
@@ -33,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nenhuma estratégia encontrada"
+            android:text="@string/error_strategy"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:gravity="center" />

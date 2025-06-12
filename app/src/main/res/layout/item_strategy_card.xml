@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
+    android:layout_marginBottom="16dp"
     android:backgroundTint="#3A3939"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp">
@@ -26,8 +25,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginEnd="12dp"
-                android:src="@drawable/logo"
-                android:contentDescription="Logo da criptomoeda" />
+                android:src="@drawable/logo"/>
 
             <TextView
                 android:id="@+id/bot_name"
@@ -81,9 +79,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/exo_2"
-                    android:text="@string/buy_price_label"
-                    android:textColor="#AAAAAA"
-                    android:textSize="12sp" />
+                    android:text="@string/buy_price"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/buy_price"
@@ -109,8 +107,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/exo_2"
-                    android:text="@string/current_balance_label"
-                    android:textColor="#AAAAAA"
+                    android:text="@string/balance"
+                    android:textColor="#FFFFFF"
                     android:textSize="12sp" />
 
                 <TextView
@@ -120,7 +118,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/exo_2"
                     android:text="$24,298.12"
-                    android:textColor="#FF00FF00"
+                    android:textColor="#158B2A"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -140,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/exo_2"
-                android:text="BTC/EUR"
+                android:text="BTC/USDT"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -169,7 +167,7 @@
                     android:layout_marginTop="2dp"
                     android:fontFamily="@font/exo_2"
                     android:text="-0.24%"
-                    android:textColor="#FFFF0000"
+                    android:textColor="#892E2E"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 

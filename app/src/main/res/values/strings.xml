@@ -77,5 +77,8 @@
     <string name="slide_5_text">Start earning now through your Binance® account.</string>
     <string name="start">Start</string>
     <string name="slider_skip_text">Skip</string>
+    <string name="error_strategy">No strategies found</string>
+    <string name="buy_price">Buy price</string>
+    <string name="balance_text">Current balance</string>
 
 </resources>

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.loader.content.Loader
 import com.example.tyche.api.BalanceResponse
 import com.example.tyche.api.ServiceBuilder
 import com.example.tyche.api.UserResponse
@@ -75,7 +76,10 @@ class HomePageFragment : Fragment() {
             try {
                 val profitResponse = ServiceBuilder.apiService.getProfitPNL("Bearer $token")
 
-                lucroTextView.text = "Lucro: $%.2f".format(profitResponse.profit)
+                lucroTextView.text = buildString {
+                    append(getString(R.string.profit))
+                    append(": $%.2f".format(profitResponse.profit))
+                }
                 pnlTextView.text = "PNL: %.2f%%".format(profitResponse.pnlPercent)
 
             } catch (e: Exception) {

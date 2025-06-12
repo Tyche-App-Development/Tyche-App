@@ -104,11 +104,11 @@ class CoinSelectionFragment : Fragment() {
                 val pnlColor = if (percent >= 0) Color.GREEN else Color.RED
 
                 when (symbol) {
-                    "BTC/USDT" -> updateCard(R.id.coin_symbol_1, R.id.coin_price_1, R.id.coin_pnl_1, R.id.coin_volume_1, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "ETH/USDT" -> updateCard(R.id.coin_symbol_2, R.id.coin_price_2, R.id.coin_pnl_2, R.id.coin_volume_2, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "XRP/USDT" -> updateCard(R.id.coin_symbol_3, R.id.coin_price_3, R.id.coin_pnl_3, R.id.coin_volume_3, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "SOL/USDT" -> updateCard(R.id.coin_symbol_4, R.id.coin_price_4, R.id.coin_pnl_4, R.id.coin_volume_4, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
-                    "BNB/USDT" -> updateCard(R.id.coin_symbol_5, R.id.coin_price_5, R.id.coin_pnl_5, R.id.coin_volume_5, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)
+                    "BTC/USDT" -> updateCard(R.id.coin_symbol_1, symbol)
+                    "ETH/USDT" -> updateCard(R.id.coin_symbol_2, symbol)
+                    "XRP/USDT" -> updateCard(R.id.coin_symbol_3, symbol)
+                    "SOL/USDT" -> updateCard(R.id.coin_symbol_4, symbol)
+                    "BNB/USDT" -> updateCard(R.id.coin_symbol_5, symbol)
                 }
             }
 
@@ -119,22 +119,9 @@ class CoinSelectionFragment : Fragment() {
 
     private fun updateCard(
         symbolId: Int,
-        priceId: Int,
-        pnlId: Int,
-        volumeId: Int,
-        symbol: String,
-        price: String,
-        percent: String,
-        volume: String,
-        pnlColor: Int
+        symbol: String
     ) {
         rootView.findViewById<TextView>(symbolId).text = symbol
-        rootView.findViewById<TextView>(priceId).text = price
-        rootView.findViewById<TextView>(pnlId).apply {
-            text = percent
-            setTextColor(pnlColor)
-        }
-        rootView.findViewById<TextView>(volumeId).text = "Vol: $volume"
     }
 
     private fun setupCardClickListeners() {

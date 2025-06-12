@@ -29,7 +29,7 @@ class RegisterActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
 
-        val btnRegister = findViewById<Button>(R.id.login_button)
+        val btnRegister = findViewById<Button>(R.id.register_button)
         errorText = findViewById(R.id.errorText)
 
         btnRegister.setOnClickListener {
@@ -77,7 +77,9 @@ class RegisterActivity : AppCompatActivity() {
             retrofit.registerUser(request).enqueue(object : Callback<RegisterResponse> {
                 override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                     if (response.isSuccessful) {
-                        login(username, password)
+                        //login(username, password)
+                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                        startActivity(intent)
                     } else {
                         errorText.visibility = View.VISIBLE
                         errorText.text = getString(R.string.errorRegister)+ ": " + response.message()
@@ -105,11 +107,11 @@ class RegisterActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
                     loginResponse?.let {
-
                         saveToken(it.token)
 
                         val intent = Intent(this@RegisterActivity, IntroSlidersActivity::class.java)
                         startActivity(intent)
+                        finish()
                     }
                 } else {
                     errorText.visibility = View.VISIBLE
