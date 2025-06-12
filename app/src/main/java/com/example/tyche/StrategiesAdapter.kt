@@ -107,12 +107,13 @@ class StrategiesAdapter(
         }
 
         private fun setCoinImage(pair: String) {
-            val imageRes = when {
-                pair.contains("BTC") -> R.drawable.bitcoin_btc_logo
-                pair.contains("ETH") -> R.drawable.eth_logo
-                pair.contains("XRP") -> R.drawable.xrp_logo
-                pair.contains("SOL") -> R.drawable.solana_sol_logo
-                pair.contains("BNB") -> R.drawable.bnb_bnb_logo
+            val base = pair.split("/").firstOrNull() ?: pair
+            val imageRes = when (base) {
+                "BTC" -> R.drawable.bitcoin_btc_logo
+                "ETH" -> R.drawable.eth_logo
+                "XRP" -> R.drawable.xrp_logo
+                "SOL" -> R.drawable.solana_sol_logo
+                "BNB" -> R.drawable.bnb_bnb_logo
                 else -> R.drawable.logo
             }
             coinImage.setImageResource(imageRes)

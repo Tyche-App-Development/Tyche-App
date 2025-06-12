@@ -87,7 +87,6 @@ class StrategyCardFragment : Fragment() {
                 }
 
             } catch (e: HttpException) {
-                Log.e("StrategyCardFragment", "Erro HTTP: ${e.code()} - ${e.message()}")
                 when (e.code()) {
                     401 -> showError("Sessão expirada. Faça login novamente.")
                     404 -> showError("Nenhuma estratégia encontrada.")
@@ -95,11 +94,8 @@ class StrategyCardFragment : Fragment() {
                     else -> showError("Erro: ${e.message()}")
                 }
             } catch (e: IOException) {
-                Log.e("StrategyCardFragment", "Erro de conexão: ${e.message}")
-                showError("Erro de conexão. Verifique sua internet.")
             } catch (e: Exception) {
-                Log.e("StrategyCardFragment", "Erro inesperado: ${e.message}")
-                showError("Erro inesperado: ${e.message}")
+
             } finally {
                 showLoading(false)
             }
@@ -127,7 +123,6 @@ class StrategyCardFragment : Fragment() {
     }
 
     private fun showError(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
         showEmptyState(true)
     }
 }
