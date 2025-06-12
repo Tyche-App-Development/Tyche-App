@@ -18,16 +18,15 @@
             android:backgroundTint="#3A3939"
             android:gravity="center"
             app:cardCornerRadius="20dp"
-
             >
+
             <LinearLayout
+                android:id="@+id/coin_card_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="16dp"
-                android:id="@+id/coin_card_1"
-                >
+                android:padding="16dp">
 
                 <ImageView
                     android:id="@+id/coin_image_1"
@@ -48,7 +47,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/exo_2"
-                        android:text="BTC/EUR"
+                        android:text="BTC/USDT"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -127,7 +126,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/exo_2"
-                        android:text="ETH/EUR"
+                        android:text="ETH/USDT"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -207,7 +206,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/exo_2"
-                        android:text="XRP/EUR"
+                        android:text="XRP/USDT"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -286,7 +285,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/exo_2"
-                        android:text="SOL/EUR"
+                        android:text="SOL/USDT"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -365,7 +364,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/exo_2"
-                        android:text="BNB/EUR"
+                        android:text="BNB/USDT"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />

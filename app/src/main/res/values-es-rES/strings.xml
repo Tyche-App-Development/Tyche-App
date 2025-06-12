@@ -77,5 +77,8 @@
     <string name="start">Comenzar</string>
     <string name="slider_skip_text">Ignora</string>
     <string name="errorPassword">Las contraseñas no coinciden.</string>
+    <string name="error_strategy">No se ha encontrado ninguna estrategia</string>
+    <string name="buy_price">Precio de compra</string>
+    <string name="balance_text">Saldo actual</string>
 
 </resources>

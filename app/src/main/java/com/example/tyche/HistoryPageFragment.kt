@@ -45,7 +45,9 @@ class HistoryPageFragment : Fragment() {
         val historyCardFragment = HistoryCardFragment()
 
         childFragmentManager.beginTransaction()
-            .replace(R.id.historyCards, historyCardFragment)
+            .replace(R.id.historyCards
+
+                , historyCardFragment)
             .commit()
     }
 

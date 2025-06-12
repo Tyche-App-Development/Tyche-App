@@ -66,37 +66,6 @@
                         android:textStyle="bold" />
 
                     <View
-                        android:id="@+id/divider"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@android:color/white" />
-                    <LinearLayout
-                        android:id="@+id/notificationRow"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/notificationsLabel"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:paddingVertical="12dp"
-                            android:fontFamily="@font/exo_2"
-                            android:text="@string/notifications"
-                            android:textColor="@android:color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <Switch
-                            android:id="@+id/notificationSwitch"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:thumbTint="@color/white"
-                            android:trackTint="@color/white"/>
-                    </LinearLayout>
-
-                    <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@android:color/white" />

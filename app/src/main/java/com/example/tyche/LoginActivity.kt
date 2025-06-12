@@ -72,8 +72,7 @@ class LoginActivity : AppCompatActivity() {
 
                         val intent = Intent(this@LoginActivity, IntroSlidersActivity::class.java)
                         startActivity(intent)
-
-
+                        finish()
                     }
                 } else {
                     errorText.visibility = View.VISIBLE

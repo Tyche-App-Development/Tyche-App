@@ -106,10 +106,10 @@ class StrategyCardFragment : Fragment() {
         Toast.makeText(
             requireContext(),
             """
-    Strategy: ${strategy.botName}
-    Saldo: $${"%.2f".format(strategy.balance.current)}
-""",
-            Toast.LENGTH_SHORT
+            Strategy: ${strategy.botName}
+            Saldo: $${"%.2f".format(strategy.balance.current)}
+            """,
+                    Toast.LENGTH_SHORT
         ).show()
     }
 

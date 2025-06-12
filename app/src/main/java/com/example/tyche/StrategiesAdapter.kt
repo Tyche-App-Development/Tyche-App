@@ -1,6 +1,7 @@
 package com.example.tyche
 
 import StrategyInfo
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -61,9 +62,9 @@ class StrategiesAdapter(
 
             val profit = strategy.balance.current - strategy.balance.initial
             val balanceColor = if (profit >= 0) {
-                ContextCompat.getColor(itemView.context, R.color.pure_green)
+                Color.parseColor("#158B2A")
             } else {
-                ContextCompat.getColor(itemView.context, R.color.pure_red)
+                Color.parseColor("#892E2E")
             }
             currentBalanceDetail.setTextColor(balanceColor)
 
@@ -71,13 +72,14 @@ class StrategiesAdapter(
             currentPrice.text = itemView.context.getString(R.string.currency_format, formatCurrency(strategy.trading.currentPrice))
 
             val priceChangeValue = strategy.trading.priceChange
-            val changePrefix = if (priceChangeValue >= 0) "+" else ""
+            val changePrefix = if (priceChangeValue >= 0) "+" else "-"
             priceChange.text = itemView.context.getString(R.string.percentage_format, changePrefix, String.format("%.2f", priceChangeValue))
             priceChange.setTextColor(
-                if (priceChangeValue >= 0)
-                    ContextCompat.getColor(itemView.context,  R.color.pure_green)
-                else
-                    ContextCompat.getColor(itemView.context, R.color.pure_red)
+                if (priceChangeValue >= 0){
+                    Color.parseColor("#158B2A")
+                } else {
+                    Color.parseColor("#892E2E")
+                }
             )
 
 
@@ -99,8 +101,8 @@ class StrategiesAdapter(
 
         private fun getActionColor(action: String): Int {
             return when (action.uppercase()) {
-                "BUY" -> ContextCompat.getColor(itemView.context, R.color.pure_green)
-                "SELL" -> ContextCompat.getColor(itemView.context, R.color.pure_red)
+                "BUY" -> Color.parseColor("#158B2A")
+                "SELL" -> Color.parseColor("#892E2E")
                 "NONE" -> ContextCompat.getColor(itemView.context, android.R.color.white)
                 else -> ContextCompat.getColor(itemView.context, android.R.color.white)
             }

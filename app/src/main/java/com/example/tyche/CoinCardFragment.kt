@@ -40,9 +40,6 @@ class CoinCardFragment : Fragment() {
         return rootView
     }
 
-
-
-
     private fun connectWebSocket() {
         val request = Request.Builder().url("ws://10.0.2.2:3001").build()
         webSocket = client.newWebSocket(request, object : WebSocketListener() {
@@ -79,7 +76,7 @@ class CoinCardFragment : Fragment() {
                 val formattedPrice = "$%.2f".format(price)
                 val formattedPercent = "%+.2f%%".format(percent)
                 val formattedVolume = "%.2f".format(volume)
-                val pnlColor = if (percent >= 0) Color.GREEN else Color.RED
+                val pnlColor = if (percent >= 0) Color.parseColor("#158B2A") else Color.parseColor("#892E2E")
 
                 when (symbol) {
                     "BTC/USDT" -> updateCard(R.id.coin_symbol_1, R.id.coin_price_1, R.id.coin_pnl_1, R.id.coin_volume_1, symbol, formattedPrice, formattedPercent, formattedVolume, pnlColor)

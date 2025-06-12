@@ -66,7 +66,10 @@ class WalletPageFragment : Fragment() {
 
                     if (profitTextView != null && pnlTextView != null) {
                         val profitResponse = ServiceBuilder.apiService.getProfitPNL("Bearer $token")
-                        profitTextView.text = "Lucro: %.2f".format(profitResponse.profit)
+                        profitTextView.text = buildString {
+                            append(getString(R.string.profit))
+                            append(": $%.2f".format(profitResponse.profit))
+                        }
                         pnlTextView.text = "PNL: %.2f%%".format(profitResponse.pnlPercent)
                     }
 
