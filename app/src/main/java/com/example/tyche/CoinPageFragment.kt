@@ -147,7 +147,6 @@ class CoinPageFragment : Fragment() {
 
                 if (type == "klines" && symbolJson == symbolNow) {
                     val dataArray = json.getJSONArray("data")
-                    Log.d("KLINES", "Recebidos ${dataArray.length()} candles para $symbolNow")
                     val entries = mutableListOf<CandleEntry>()
                     val timestamps = mutableListOf<Long>()
 

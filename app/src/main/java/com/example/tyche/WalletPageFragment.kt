@@ -32,7 +32,7 @@ class WalletPageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         rootView = inflater.inflate(R.layout.fragment_wallet_page, container, false)
-        rootView.findViewById<ImageView>(R.id.add_btn)?.setOnClickListener { openStratPage() }
+        rootView.findViewById<ImageView>(R.id.add_btn)?.setOnClickListener { openCreateStrategyPage() }
         return rootView
     }
 
@@ -60,7 +60,6 @@ class WalletPageFragment : Fragment() {
         if (token != null) {
             lifecycleScope.launch {
                 try {
-
                     val balanceResponse = ServiceBuilder.apiService.getBalance("Bearer $token")
                     totalBalanceTextView?.text = "$%.2f".format(balanceResponse.balanceUSD)
 
@@ -74,13 +73,13 @@ class WalletPageFragment : Fragment() {
                     }
 
                 } catch (e: Exception) {
-                    totalBalanceTextView?.text = "Erro ao carregar saldo"
+                    totalBalanceTextView?.text = "Error loading balance"
                 }
             }
         }
     }
 
-    private fun openStratPage() {
+    private fun openCreateStrategyPage() {
         val fragment = CreateStrategyPageFragment()
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.nav_frame, fragment)

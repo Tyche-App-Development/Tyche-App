@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.loader.content.Loader
-import com.example.tyche.api.BalanceResponse
 import com.example.tyche.api.ServiceBuilder
 import com.example.tyche.api.UserResponse
 import kotlinx.coroutines.launch
@@ -17,8 +15,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
@@ -56,8 +52,9 @@ class HomePageFragment : Fragment() {
 
         val coinCardFragment = CoinCardFragment()
         val nameTextView = view.findViewById<TextView>(R.id.name)
-
         val totalBalanceTextView = view.findViewById<TextView>(R.id.total_balance)
+        val profitTextView = view.findViewById<TextView>(R.id.profit_text)
+        val pnlTextView = view.findViewById<TextView>(R.id.pnl_text)
 
         lifecycleScope.launch {
             try {
@@ -65,47 +62,41 @@ class HomePageFragment : Fragment() {
                 val formatted = "$%.2f".format(response.balanceUSD)
                 totalBalanceTextView.text = formatted
             } catch (e: Exception) {
-                totalBalanceTextView.text = "Erro saldo: ${e.message}"
+                totalBalanceTextView.text = "Balance error: ${e.message}"
             }
         }
-
-        val lucroTextView = view.findViewById<TextView>(R.id.profit_text)
-        val pnlTextView = view.findViewById<TextView>(R.id.pnl_text)
 
         lifecycleScope.launch {
             try {
                 val profitResponse = ServiceBuilder.apiService.getProfitPNL("Bearer $token")
 
-                lucroTextView.text = buildString {
+                profitTextView.text = buildString {
                     append(getString(R.string.profit))
                     append(": $%.2f".format(profitResponse.profit))
                 }
                 pnlTextView.text = "PNL: %.2f%%".format(profitResponse.pnlPercent)
 
             } catch (e: Exception) {
-                lucroTextView.text = "Erro lucro"
-                pnlTextView.text = "Erro PNL"
+                profitTextView.text = "Profit error"
+                pnlTextView.text = "PNL error"
             }
         }
 
-
-
-
         ServiceBuilder.apiService.getUser("Bearer $token").enqueue(object :
             Callback<UserResponse> {
-                override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
-                    if (response.isSuccessful) {
-                        val userProfile = response.body()
-                        nameTextView.text = userProfile?.user?.name ?: "Nome não encontrado"
-                    } else {
-                        nameTextView.text = "Erro: ${response.code()}"
-                    }
+            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+                if (response.isSuccessful) {
+                    val userProfile = response.body()
+                    nameTextView.text = userProfile?.user?.name ?: "Name not found"
+                } else {
+                    nameTextView.text = "Error: ${response.code()}"
                 }
+            }
 
-                override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                    nameTextView.text = "Erro na conexão: ${t.message}"
-                }
-            })
+            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                nameTextView.text = "Connection error: ${t.message}"
+            }
+        })
 
         childFragmentManager.beginTransaction()
             .replace(R.id.coin_card, coinCardFragment)
@@ -120,7 +111,6 @@ class HomePageFragment : Fragment() {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
-
             }
     }
 }

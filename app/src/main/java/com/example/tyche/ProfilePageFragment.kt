@@ -18,8 +18,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
@@ -36,8 +34,8 @@ class ProfilePageFragment : Fragment() {
     private lateinit var rootView: View
 
     private var imgUrl: String? = null
-    private var fullname: String? = null
-    private var username: String? = null
+    private var fullName: String? = null
+    private var userName: String? = null
     private var email: String? = null
     private var nif: String? = null
 
@@ -54,7 +52,6 @@ class ProfilePageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         rootView = inflater.inflate(R.layout.fragment_profile_page, container, false)
-
         return rootView
     }
 
@@ -82,7 +79,7 @@ class ProfilePageFragment : Fragment() {
         }
 
         btnEditProfile.setOnClickListener {
-            openEditInfosPage()
+            openEditProfilePage()
         }
 
         ServiceBuilder.apiService.getUser("Bearer $token").enqueue(object : Callback<UserResponse> {
@@ -91,12 +88,12 @@ class ProfilePageFragment : Fragment() {
                     val userProfile = response.body()
 
                     imgUrl = userProfile?.user?.imageProfile
-                    fullname = userProfile?.user?.name
-                    username = userProfile?.user?.username
+                    fullName = userProfile?.user?.name
+                    userName = userProfile?.user?.username
                     email = userProfile?.user?.email
                     nif = userProfile?.user?.nif
 
-                    nameTextView.text = userProfile?.user?.name ?: "Nome não encontrado"
+                    nameTextView.text = userProfile?.user?.name ?: "Name not found"
                     usernameTextView.text = userProfile?.user?.username
                     emailTextView.text = userProfile?.user?.email
                     nifTextView.text = userProfile?.user?.nif
@@ -108,12 +105,12 @@ class ProfilePageFragment : Fragment() {
                             .into(imageView)
                     }
                 } else {
-                    nameTextView.text = "Erro: ${response.code()}"
+                    nameTextView.text = "Error: ${response.code()}"
                 }
             }
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                nameTextView.text = "Erro na conexão: ${t.message}"
+                nameTextView.text = "Connection error: ${t.message}"
             }
         })
     }
@@ -148,8 +145,8 @@ class ProfilePageFragment : Fragment() {
             .commit()
     }
 
-    private fun openEditInfosPage() {
-        val fragment = EditProfilePageFragment.newInstance(imgUrl, fullname, username, email, nif)
+    private fun openEditProfilePage() {
+        val fragment = EditProfilePageFragment.newInstance(imgUrl, fullName, userName, email, nif)
 
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.nav_frame, fragment)

@@ -43,7 +43,7 @@ class StrategyCardFragment : Fragment() {
         emptyState = view.findViewById(R.id.empty_state)
 
         if (recyclerView == null) {
-            Log.e("StrategyCardFragment", "RecyclerView não encontrado!")
+            Log.e("StrategyCardFragment", "RecyclerView not found!")
             return
         }
 
@@ -53,7 +53,7 @@ class StrategyCardFragment : Fragment() {
 
     private fun setupRecyclerView() {
         strategiesAdapter = StrategiesAdapter { strategy ->
-            onStrategyClick(strategy)
+
         }
 
         recyclerView.apply {
@@ -71,7 +71,7 @@ class StrategyCardFragment : Fragment() {
         val token = sharedPreferences.getString("TOKEN_KEY", null)
 
         if (token.isNullOrEmpty()) {
-            showError("Token não encontrado. Faça login novamente.")
+            showError("Token not found. Please log in again.")
             return
         }
 
@@ -88,29 +88,19 @@ class StrategyCardFragment : Fragment() {
 
             } catch (e: HttpException) {
                 when (e.code()) {
-                    401 -> showError("Sessão expirada. Faça login novamente.")
-                    404 -> showError("Nenhuma estratégia encontrada.")
-                    500 -> showError("Erro interno do servidor.")
-                    else -> showError("Erro: ${e.message()}")
+                    401 -> showError("Session expired. Please log in again.")
+                    404 -> showError("No strategies found.")
+                    500 -> showError("Internal server error.")
+                    else -> showError("Error: ${e.message()}")
                 }
             } catch (e: IOException) {
+                showError("Network error. Please check your connection.")
             } catch (e: Exception) {
-
+                showError("Unexpected error: ${e.localizedMessage}")
             } finally {
                 showLoading(false)
             }
         }
-    }
-
-    private fun onStrategyClick(strategy: StrategyInfo) {
-        Toast.makeText(
-            requireContext(),
-            """
-            Strategy: ${strategy.botName}
-            Saldo: $${"%.2f".format(strategy.balance.current)}
-            """,
-                    Toast.LENGTH_SHORT
-        ).show()
     }
 
     private fun showLoading(show: Boolean) {
@@ -124,5 +114,6 @@ class StrategyCardFragment : Fragment() {
 
     private fun showError(message: String) {
         showEmptyState(true)
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
     }
 }

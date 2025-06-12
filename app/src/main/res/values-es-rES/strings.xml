@@ -80,5 +80,6 @@
     <string name="error_strategy">No se ha encontrado ninguna estrategia</string>
     <string name="buy_price">Precio de compra</string>
     <string name="balance_text">Saldo actual</string>
+    <string name="strategy_created_success">¡Estrategia creada con éxito!</string>
 
 </resources>

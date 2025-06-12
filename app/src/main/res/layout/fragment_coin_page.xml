@@ -135,7 +135,7 @@
                                     android:fontFamily="@font/exo_2"
                                     android:text="@string/coin_info_rank"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="24sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                                 <TextView
                                     android:id="@+id/coinRank"
@@ -169,7 +169,7 @@
                                     android:fontFamily="@font/exo_2"
                                     android:text="@string/coin_info_supply"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="24sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                                 <TextView
                                     android:id="@+id/coinSupply"
@@ -203,7 +203,7 @@
                                     android:fontFamily="@font/exo_2"
                                     android:text="@string/coin_info_high"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="24sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                                 <TextView
                                     android:id="@+id/coinAllTimeHigh"
@@ -246,7 +246,7 @@
                                     android:fontFamily="@font/exo_2"
                                     android:text="@string/coin_info_market_cap"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="24sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                                 <TextView
                                     android:id="@+id/coinMarketCap"
@@ -280,7 +280,7 @@
                                     android:fontFamily="@font/exo_2"
                                     android:text="@string/coin_info_issue_date"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="24sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                                 <TextView
                                     android:id="@+id/coinIssueDate"
@@ -314,7 +314,7 @@
                                     android:fontFamily="@font/exo_2"
                                     android:text="@string/coin_info_all_time_low"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="24sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                                 <TextView
                                     android:id="@+id/coinAllTimeLow"
